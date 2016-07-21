@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<Save>
+    <!-- Save file -->
+    <Data>
+        <unlock>1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,1,0,0,0,0,0,0,</unlock>
+        <unlocknotify>0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,1,0,1,0,0,0,0,0,0,</unlocknotify>
+        <besttrinkets>0,-1,-1,-1,-1,-1,</besttrinkets>
+        <bestlives>5,-1,-1,-1,-1,-1,</bestlives>
+        <bestrank>0,-1,-1,-1,-1,-1,</bestrank>
+        <bestgamedeaths>824</bestgamedeaths>
+        <stat_trinkets>20</stat_trinkets>
+        <fullscreen>0</fullscreen>
+        <noflashingmode>0</noflashingmode>
+        <colourblindmode>0</colourblindmode>
+        <setflipmode>0</setflipmode>
+        <invincibility>0</invincibility>
+        <swnbestrank>1</swnbestrank>
+        <swnrecord>156</swnrecord>
+        <advanced_mode>0</advanced_mode>
+        <advanced_smoothing>0</advanced_smoothing>
+        <advanced_scaling>3</advanced_scaling>
+    </Data>
+</Save>

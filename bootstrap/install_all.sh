@@ -1,5 +1,10 @@
 #!/bin/bash
+brew update
+brew doctor
+brew upgrade
+
 brew tap caskroom/cask
+
 brew install ack
 brew install gpg 
 brew install boost

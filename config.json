@@ -1,13 +1,16 @@
 {
-    "directories": [""],
+    "directories": [],
 
     "link": {
-        "bootstrap": "~/bootstrap",
+        "bootstrap": "~/.bootstrap",
         "files/.bash_profile": "~/.bash_profile",
         "files/.git-prompt.sh": "~/.git-prompt.sh",
         "files/.gitconfig": "~/.gitconfig",
         "files/.gitignore_global": "~/.gitignore_global",
-        "files/.tool-versions": "~/.tool-versions"
+        "files/.tool-versions": "~/.tool-versions",
+        "files/.vimrc": "~/.vimrc",
+        "files/.mc": "~/.mc",
+        "files/.vvvvvv": "~/.vvvvvv"
     },
 
     "copy": {

@@ -26,5 +26,4 @@ cd ~/.bootstrap
 
 For maintaining consistent Atom config we're using https://atom.io/packages/sync-settings
 
-The git to use in its config is https://gist.github.com/nietaki/c93fc1b2f38645521764ea1dc48ccb1b
-, which means the id is c93fc1b2f38645521764ea1dc48ccb1b 
+The git to use in its config is https://gist.github.com/nietaki/c93fc1b2f38645521764ea1dc48ccb1b, which means the id is `c93fc1b2f38645521764ea1dc48ccb1b`

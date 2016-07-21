@@ -1,5 +1,5 @@
 {
-    "directories": ["~/emacs.d"],
+    "directories": [""],
 
     "link": {
         "bootstrap": "~/bootstrap",
@@ -7,13 +7,12 @@
         "files/.git-prompt.sh": "~/.git-prompt.sh",
         "files/.gitconfig": "~/.gitconfig",
         "files/.gitignore_global": "~/.gitignore_global",
-        "files/.tool-versions": "~/.tool-versions",
+        "files/.tool-versions": "~/.tool-versions"
     },
 
     "copy": {
     },
 
     "commands": [
-
     ]
 }

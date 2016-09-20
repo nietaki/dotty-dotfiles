@@ -8,9 +8,9 @@
   br = branch
   co = checkout
   nuke = reset --hard HEAD
-  set-upstream = branch -u 
   amend = commit -a --amend
   ca = commit -a
+  push-simple = push -u origin HEAD
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

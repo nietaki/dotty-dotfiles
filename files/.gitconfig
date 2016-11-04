@@ -11,6 +11,7 @@
   amend = commit -a --amend
   ca = commit -a
   push-simple = push -u origin HEAD
+  delete-merged-branches = ! git branch --merged master | grep -v \"\\* master\" | xargs -n 1 git branch -d
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

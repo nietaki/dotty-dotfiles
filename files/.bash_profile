@@ -16,4 +16,11 @@ alias ego='git ls-files -z | xargs -0n1 git blame -w | ruby -n -e '\''$_ =~ /^.*
 
 alias nethack='telnet eu.un.nethack.nu'
 
+base64_decoded() {
+  echo "$1" | base64 -D && echo
+}
+
+alias decoded=base64_decoded
+
 set -o vi
+

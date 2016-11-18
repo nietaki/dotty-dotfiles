@@ -22,5 +22,13 @@ base64_decoded() {
 
 alias decoded=base64_decoded
 
+grab_local_schema() {
+  graphql-fetch-schema "http://localhost:4000/api/graphql?username=ryan&password=secret"
+}
+
+grab_master_schema() {
+  graphql-fetch-schema "https://mainframe-testing.herokuapp.com/api/graphql?username=ryan&password=secret"
+}
+
 set -o vi
 

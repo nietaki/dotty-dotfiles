@@ -31,6 +31,7 @@ brew install wget
 brew install wxmac
 #brew install zsh
 brew install pt
+brew install cmatrix
 
 #brew tap d12frosted/emacs-plus
 #brew install emacs-plus --with-cocoa --with-gnutls --with-librsvg --with-imagemagick --with-spacemacs-icon

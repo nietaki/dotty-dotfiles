@@ -12,7 +12,10 @@ export PROMPT_COMMAND='__git_ps1 "\u@\h:\W" "\\\$ ";'
 # ego booster script
 # not-escaped version:
 #  git ls-files -z | xargs -0n1 git blame -wc | sed -e 's/^.\{8\}[^a-zA-Z]*\([a-zA-Z][^+]*\)[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].*$/\1/' | sort -f | uniq -c | sort -rn
-alias ego='git ls-files -z | xargs -0n1 git blame -wc | sed -e '\''s/^.\{8\}[^a-zA-Z]*\([a-zA-Z][^+]*\)[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].*$/\1/'\'' | sort -f | uniq -c | sort -rn'
+#alias ego='git ls-files -z | xargs -0n1 git blame -wc | sed -e '\''s/^.\{8\}[^a-zA-Z]*\([a-zA-Z][^+]*\)[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].*$/\1/'\'' | sort -f | uniq -c | sort -rn'
+
+# requires brew install git-extras
+alias ego='git summary --line'
 
 alias nethack='telnet eu.un.nethack.nu'
 

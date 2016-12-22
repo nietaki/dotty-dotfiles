@@ -18,6 +18,7 @@ export PROMPT_COMMAND='__git_ps1 "\u@\h:\W" "\\\$ ";'
 alias ego='git summary --line'
 
 alias nethack='telnet eu.un.nethack.nu'
+alias discworld='tt++ ~/.tin/discworld.tin'
 
 base64_decoded() {
   echo "$1" | base64 -D && echo

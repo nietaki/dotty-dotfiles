@@ -10,7 +10,8 @@
         "files/.tool-versions": "~/.tool-versions",
         "files/.vimrc": "~/.vimrc",
         "files/.mc": "~/.mc",
-        "files/.vvvvvv": "~/.vvvvvv"
+        "files/.vvvvvv": "~/.vvvvvv",
+        "files/.tin": "~/.tin"
     },
 
     "copy": {

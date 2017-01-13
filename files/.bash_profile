@@ -31,7 +31,7 @@ export PROMPT_COMMAND='__git_ps1 "\u@\h:\W" "\\\$ "; echo -ne "\033]0;${PWD##*/}
 #alias ego='git ls-files -z | xargs -0n1 git blame -wc | sed -e '\''s/^.\{8\}[^a-zA-Z]*\([a-zA-Z][^+]*\)[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].*$/\1/'\'' | sort -f | uniq -c | sort -rn'
 
 # requires brew install git-extras
-alias ego='git summary --line'
+alias ego='git line-summary'
 
 alias nethack='telnet eu.un.nethack.nu'
 alias discworld='tt++ ~/.tin/discworld.tin'
@@ -42,12 +42,14 @@ base64_decoded() {
 
 alias decoded=base64_decoded
 
+alias reseed='mix ecto.drop && mix ecto.create && mix ecto.migrate && mix mainframe.db.seed'
+
 grab_local_schema() {
-  graphql-fetch-schema -s "http://localhost:4000/api/graphql?username=ryan&password=secret"
+  graphql-fetch-schema -s -g "http://localhost:4000/api/graphql?username=ryan&password=secret"
 }
 
 grab_master_schema() {
-  graphql-fetch-schema -s "https://mainframe-testing.herokuapp.com/api/graphql?username=ryan&password=secret"
+  graphql-fetch-schema -s -g "https://mainframe-testing.herokuapp.com/api/graphql?username=ryan&password=secret"
 }
 
 set -o vi

@@ -37,10 +37,15 @@ alias nethack='telnet eu.un.nethack.nu'
 alias discworld='tt++ ~/.tin/discworld.tin'
 
 base64_decoded() {
-  echo "$1" | base64 -D && echo
+  echo -n "$1" | base64 -D && echo
+}
+
+base64_encoded() {
+  echo -n "$1" | base64 && echo
 }
 
 alias decoded=base64_decoded
+alias encoded=base64_encoded
 
 alias reseed='mix ecto.drop && mix ecto.create && mix ecto.migrate && mix mainframe.db.seed'
 

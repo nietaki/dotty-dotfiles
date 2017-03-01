@@ -50,11 +50,14 @@ alias encoded=base64_encoded
 alias reseed='mix ecto.drop && mix ecto.create && mix ecto.migrate && mix mainframe.db.seed'
 
 grab_local_schema() {
-  graphql-fetch-schema -s -g "http://localhost:4000/api/graphql?username=ryan&password=secret"
+  graphql-fetch-schema -s -g "http://localhost:4000/api/graphql?username=jacek&password=secret"
 }
 
 grab_master_schema() {
-  graphql-fetch-schema -s -g "https://mainframe-testing.herokuapp.com/api/graphql?username=ryan&password=secret"
+  graphql-fetch-schema -s -g "https://mainframe-testing.herokuapp.com/api/graphql?username=jacek&password=secret"
 }
 
 set -o vi
+
+export NVM_DIR="/Users/nietaki/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

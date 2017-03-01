@@ -11,7 +11,8 @@
         "files/.vimrc": "~/.vimrc",
         "files/.mc": "~/.mc",
         "files/.vvvvvv": "~/.vvvvvv",
-        "files/.tin": "~/.tin"
+        "files/.tin": "~/.tin",
+        "files/.spacemacs": "~/.spacemacs"
     },
 
     "copy": {

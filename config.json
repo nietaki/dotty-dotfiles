@@ -12,7 +12,8 @@
         "files/.mc": "~/.mc",
         "files/.vvvvvv": "~/.vvvvvv",
         "files/.tin": "~/.tin",
-        "files/.spacemacs": "~/.spacemacs"
+        "files/.spacemacs": "~/.spacemacs",
+        "files/.emacs.d/private/snippets": "~/.emacs.d/private/snippets"
     },
 
     "copy": {

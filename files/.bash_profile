@@ -59,5 +59,7 @@ grab_master_schema() {
 
 set -o vi
 
+alias spc='emacs . &'
+
 export NVM_DIR="/Users/nietaki/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

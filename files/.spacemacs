@@ -315,10 +315,11 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq default-frame-alist
         '(
-          (width . 200)                 ; character
-          (height . 60)                 ; lines
+          (width . 190)                 ; character
+          (height . 50)                 ; lines
           ))
   (setq git-gutter-fr+-side 'left-fringe)
+  (setq case-fold-search nil)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

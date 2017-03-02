@@ -320,6 +320,15 @@ you should place your code here."
           ))
   (setq git-gutter-fr+-side 'left-fringe)
   (setq case-fold-search nil)
+  (setq vc-follow-symlinks t)
+  (eval-after-load 'git-gutter+
+    '(progn
+     ;;; Jump between hunks
+       (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
+       (define-key git-gutter+-mode-map (kbd "M-j") 'git-gutter+-next-hunk)
+       (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
+       (define-key git-gutter+-mode-map (kbd "M-k") 'git-gutter+-previous-hunk)
+       ))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

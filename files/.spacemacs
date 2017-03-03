@@ -343,6 +343,7 @@ you should place your code here."
        (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
        (define-key git-gutter+-mode-map (kbd "M-k") 'git-gutter+-previous-hunk)
        ))
+  (global-set-key (kbd "M-s M-s") 'yas-expand)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

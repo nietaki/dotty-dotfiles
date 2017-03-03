@@ -81,7 +81,10 @@ values."
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
    dotspacemacs-install-packages 'used-only
+   ;; wider line spacing
    line-spacing 2
+   ;; full path in the window title
+   frame-title-format "%b (%f)"
    ))
 
 (defun dotspacemacs/init ()

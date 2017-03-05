@@ -248,7 +248,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -328,11 +328,11 @@ you should place your code here."
                       (buffer-file-name))))
       (when filename
         (x-select-text filename))))
-  (setq default-frame-alist
-        '(
-          (width . 190)                 ; character
-          (height . 50)                 ; lines
-          ))
+  ;; (setq default-frame-alist
+  ;;       '(
+  ;;         (width . 190)                 ; character
+  ;;         (height . 50)                 ; lines
+  ;;         ))
   (setq git-gutter-fr+-side 'left-fringe)
   (setq case-fold-search nil)
   (setq vc-follow-symlinks t)

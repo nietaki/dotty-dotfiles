@@ -346,6 +346,7 @@ you should place your code here."
        ))
   ;; snippet expansion shortcut
   (global-set-key (kbd "M-s M-s") 'yas-expand)
+  (global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
   ;; show fill column indicator by default
   (add-hook 'after-change-major-mode-hook 'fci-mode)
 )

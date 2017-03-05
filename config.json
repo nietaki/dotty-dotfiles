@@ -1,6 +1,5 @@
 {
     "directories": [
-        "~/.emacs.d/private"
     ],
 
     "link": {

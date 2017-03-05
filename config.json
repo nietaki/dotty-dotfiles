@@ -1,5 +1,7 @@
 {
-    "directories": [],
+    "directories": [
+        "~/.emacs.d/private"
+    ],
 
     "link": {
         "bootstrap": "~/.bootstrap",

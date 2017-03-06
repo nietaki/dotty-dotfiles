@@ -32,3 +32,4 @@ flux
 sourcetree
 whatsapp
 bettertouchtool
+font-source-code-pro

@@ -34,6 +34,9 @@ brew install pt
 brew install cmatrix
 brew install tintin
 
+brew tap caskroom/fonts
+
+
 #brew tap d12frosted/emacs-plus
 #brew install emacs-plus --with-cocoa --with-gnutls --with-librsvg --with-imagemagick --with-spacemacs-icon
 #brew linkapps

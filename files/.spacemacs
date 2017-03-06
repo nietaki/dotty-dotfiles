@@ -367,6 +367,8 @@ you should place your code here."
   ;; (add-hook 'after-change-major-mode-hook 'fci-mode)
   ;; treat underscores as parts of words in Elixir
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-to-list 'spacemacs-indent-sensitive-modes 'elixir-mode)
+  (setq alchemist-test-truncate-lines nil)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

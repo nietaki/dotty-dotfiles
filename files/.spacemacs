@@ -154,7 +154,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -320,6 +320,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; Util Functions
   (defun clip-file ()
     "Put the current file path in the clipboard"
     (interactive)
@@ -328,6 +329,21 @@ you should place your code here."
                       (buffer-file-name))))
       (when filename
         (x-select-text filename))))
+  (defun chance (num denom)
+    "returns t with num / denom chance"
+    (setq res (random denom))
+    (if (< res num) t nil)
+    )
+  ;; enable line wrapping
+  (setq truncate-lines nil)
+  ;; Make evil-mode up/down operate in screen lines instead of logical lines
+  (define-key evil-motion-state-map "j" 'evil-next-visual-line)
+  (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
+  ;; Also in visual mode
+  (define-key evil-visual-state-map "j" 'evil-next-visual-line)
+  (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
+  (indent-guide-global-mode)
+  (setq indent-guide-delay 0.2)
   ;; (setq default-frame-alist
   ;;       '(
   ;;         (width . 190)                 ; character
@@ -348,7 +364,7 @@ you should place your code here."
   (global-set-key (kbd "M-s M-s") 'yas-expand)
   (global-set-key (kbd "s-/") 'spacemacs/comment-or-uncomment-lines)
   ;; show fill column indicator by default
-  (add-hook 'after-change-major-mode-hook 'fci-mode)
+  ;; (add-hook 'after-change-major-mode-hook 'fci-mode)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

@@ -83,7 +83,7 @@ values."
    ;; Spacemacs and never uninstall them. (default is `used-only')
    dotspacemacs-install-packages 'used-only
    ;; wider line spacing is > 0
-   line-spacing 0
+   line-spacing 1
    ;; full path in the window title
    frame-title-format "%b (%f)"
    ))

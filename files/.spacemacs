@@ -50,6 +50,7 @@ values."
      osx
      html
      colors
+     ;; floobits
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30

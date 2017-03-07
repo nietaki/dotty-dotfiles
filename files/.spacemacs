@@ -379,6 +379,9 @@ you should place your code here."
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-to-list 'spacemacs-indent-sensitive-modes 'elixir-mode)
   (setq alchemist-test-truncate-lines nil)
+  ;; configuring automatic symbol highlight, manually available at `SPC s h'
+  (spacemacs/toggle-automatic-symbol-highlight)
+  (ahs-set-idle-interval 1.5)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

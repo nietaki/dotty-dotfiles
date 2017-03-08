@@ -62,6 +62,7 @@ values."
                       version-control-diff-tool 'git-gutter+
       )
      themes-megapack
+     theming
      spotify
      )
    ;; List of additional packages that will be installed without being
@@ -143,7 +144,7 @@ values."
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-scratch-mode 'markdown-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -344,6 +345,16 @@ you should place your code here."
     (setq res (random denom))
     (if (< res num) t nil)
     )
+  ;; making the theme's helm more readable
+  (setq theming-modifications
+        ;; stolen from https://github.com/lucianjon/config/blob/master/spacemacs/.spacemacs
+        '((bubbleberry
+        ;; (helm-selection :foreground "white" :background "red" :inverse-video nil)
+        ;; (helm-selection :foreground "white" :background "#6767ae" :inverse-video nil)
+        (helm-selection :foreground unspecified :background unspecified :inverse-video t)
+        )))
+  ;; reloading the theme
+  (spacemacs/load-theme 'bubbleberry)
   ;; enable line wrapping
   (setq truncate-lines nil)
   ;; Make evil-mode up/down operate in screen lines instead of logical lines

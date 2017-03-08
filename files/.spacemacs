@@ -402,6 +402,10 @@ you should place your code here."
   (global-set-key (kbd "s-l") 'helm-M-x)
   ;; like going to file, only by history and recents
   (global-set-key (kbd "s-y") 'helm-mini)
+  ;; neotree open on current file with one click
+  (global-set-key (kbd "s-\\") 'neotree-toggle)
+  ;; go to current file in dired with cmd-shift-\
+  (global-set-key (kbd "s-|") 'dired-jump)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

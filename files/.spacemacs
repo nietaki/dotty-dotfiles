@@ -393,6 +393,13 @@ you should place your code here."
   ;; configuring automatic symbol highlight, manually available at `SPC s h'
   (spacemacs/toggle-automatic-symbol-highlight)
   (ahs-set-idle-interval 1.5)
+  ;; Recreating some familiar Atom shortcuts
+  ;; easier access to advanced global search, like with Atom
+  (global-set-key (kbd "s-F") 'helm-do-ag)
+  ;; fuzzy finding a file in the project, even more like with Atom
+  (global-set-key (kbd "s-t") 'helm-projectile-find-file)
+  ;; mimicking Atoms cmd+l, equivalent to M-x
+  (global-set-key (kbd "s-l") 'helm-M-x)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

@@ -240,7 +240,7 @@ values."
    dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.2
+   dotspacemacs-which-key-delay 0.14
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
@@ -406,6 +406,8 @@ you should place your code here."
   (global-set-key (kbd "s-\\") 'neotree-toggle)
   ;; go to current file in dired with cmd-shift-\
   (global-set-key (kbd "s-|") 'dired-jump)
+  ;; save all
+  (evil-leader/set-key "ps" 'projectile-save-project-buffers)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

@@ -400,6 +400,8 @@ you should place your code here."
   (global-set-key (kbd "s-t") 'helm-projectile-find-file)
   ;; mimicking Atoms cmd+l, equivalent to M-x
   (global-set-key (kbd "s-l") 'helm-M-x)
+  ;; like going to file, only by history and recents
+  (global-set-key (kbd "s-y") 'helm-mini)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

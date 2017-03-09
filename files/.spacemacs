@@ -396,6 +396,8 @@ you should place your code here."
   ;; Recreating some familiar Atom shortcuts
   ;; easier access to advanced global search, like with Atom
   (global-set-key (kbd "s-F") 'helm-do-ag)
+  ;; global search-and-replace
+  (global-set-key (kbd "s-R") 'projectile-replace)
   ;; fuzzy finding a file in the project, even more like with Atom
   (global-set-key (kbd "s-t") 'helm-projectile-find-file)
   ;; mimicking Atoms cmd+l, equivalent to M-x

@@ -408,6 +408,8 @@ you should place your code here."
   (global-set-key (kbd "s-|") 'dired-jump)
   ;; save all
   (evil-leader/set-key "ps" 'projectile-save-project-buffers)
+  ;; unindent, alternative to "<<"
+  (global-set-key (kbd "<backtab>") 'evil-shift-left-line)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

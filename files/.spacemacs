@@ -412,6 +412,10 @@ you should place your code here."
   (evil-leader/set-key "ps" 'projectile-save-project-buffers)
   ;; unindent, alternative to "<<"
   (global-set-key (kbd "<backtab>") 'evil-shift-left-line)
+  ;; I need my Polish characters
+  (setq mac-right-option-modifier nil)
+  ;; enabling company mode for elixir
+  (add-hook 'alchemist-mode-hook 'company-mode)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

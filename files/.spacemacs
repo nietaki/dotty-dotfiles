@@ -416,6 +416,8 @@ you should place your code here."
   (setq mac-right-option-modifier nil)
   ;; enabling company mode for elixir
   (add-hook 'alchemist-mode-hook 'company-mode)
+  ;; showing modified files in neotree
+  (setq neo-vc-integration '(face))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

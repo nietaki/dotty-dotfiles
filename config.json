@@ -14,7 +14,7 @@
         "files/.vvvvvv": "~/.vvvvvv",
         "files/.tin": "~/.tin",
         "files/.spacemacs": "~/.spacemacs",
-        "files/.emacs.d/private/snippets": "~/.emacs.d/private/snippets"
+        "files/.emacs.d/private/snippets/elixir-mode": "~/.emacs.d/private/snippets/elixir-mode"
     },
 
     "copy": {

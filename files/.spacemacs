@@ -422,6 +422,7 @@ you should place your code here."
   (evil-leader/set-key "mR" 'alchemist-server-start)
   ;; quickly searching for current word
   (spacemacs/declare-prefix "o" "magic")
+  ;; don't use this, just use * instead
   (evil-leader/set-key "os" 'evil-search-word-forward)
   (evil-leader/set-key "oS" 'evil-search-word-backward)
 )

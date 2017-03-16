@@ -420,6 +420,10 @@ you should place your code here."
   (setq neo-vc-integration '(face))
   ;; restarting alchemist server
   (evil-leader/set-key "mR" 'alchemist-server-start)
+  ;; quickly searching for current word
+  (spacemacs/declare-prefix "o" "magic")
+  (evil-leader/set-key "os" 'evil-search-word-forward)
+  (evil-leader/set-key "oS" 'evil-search-word-backward)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

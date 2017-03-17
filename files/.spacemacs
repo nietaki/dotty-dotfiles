@@ -426,6 +426,9 @@ you should place your code here."
   (evil-leader/set-key "os" 'evil-search-word-forward)
   (evil-leader/set-key "oS" 'evil-search-word-backward)
   (evil-leader/set-key "oc" 'clip-file)
+  ;; disable the fat minor mode indicator in the powerline
+  (spaceline-toggle-minor-modes-off)
+  (evil-leader/set-key "om" 'spaceline-toggle-minor-modes)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

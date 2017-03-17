@@ -425,6 +425,7 @@ you should place your code here."
   ;; don't use this, just use * instead
   (evil-leader/set-key "os" 'evil-search-word-forward)
   (evil-leader/set-key "oS" 'evil-search-word-backward)
+  (evil-leader/set-key "oc" 'clip-file)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

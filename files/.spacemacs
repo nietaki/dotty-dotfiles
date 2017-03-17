@@ -426,7 +426,9 @@ you should place your code here."
   (evil-leader/set-key "os" 'evil-search-word-forward)
   (evil-leader/set-key "oS" 'evil-search-word-backward)
   (evil-leader/set-key "oc" 'clip-file)
-  ;; disable the fat minor mode indicator in the powerline
+  ;; disable the fat Major/minor mode indicator in the powerline
+  (spaceline-toggle-major-mode-off)
+  (evil-leader/set-key "oM" 'spaceline-toggle-major-mode)
   (spaceline-toggle-minor-modes-off)
   (evil-leader/set-key "om" 'spaceline-toggle-minor-modes)
 )

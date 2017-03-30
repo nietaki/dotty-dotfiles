@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     csv
      yaml
      javascript
      vimscript
@@ -404,10 +405,11 @@ you should place your code here."
   (global-set-key (kbd "s-l") 'helm-M-x)
   ;; like going to file, only by history and recents
   (global-set-key (kbd "s-y") 'helm-mini)
-  ;; neotree open on current file with one click
-  (global-set-key (kbd "s-\\") 'neotree-toggle)
-  ;; go to current file in dired with cmd-shift-\
-  (global-set-key (kbd "s-|") 'dired-jump)
+  ;; neotree open whole project on current file
+  ;; equivalent to `SPC p t'
+  (global-set-key (kbd "s-\\") 'neotree-find-project-root)
+  ;; neotree open on current file, with just the directory context
+  (global-set-key (kbd "s-|") 'neotree-toggle)
   ;; save all
   (evil-leader/set-key "ps" 'projectile-save-project-buffers)
   ;; unindent, alternative to "<<"

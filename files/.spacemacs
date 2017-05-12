@@ -433,6 +433,9 @@ you should place your code here."
   (evil-leader/set-key "oM" 'spaceline-toggle-major-mode)
   (spaceline-toggle-minor-modes-off)
   (evil-leader/set-key "om" 'spaceline-toggle-minor-modes)
+  ;; no slide-y powerline separators
+  (setq powerline-default-separator nil)
+  (spaceline-compile)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

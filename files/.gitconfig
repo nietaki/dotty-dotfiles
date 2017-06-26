@@ -1,6 +1,7 @@
 [user]
 	name = Jacek Królikowski
 	email = nietaki@gmail.com
+	useconfigonly = true
 [core]
   excludesfile = /Users/nietaki/.gitignore_global
 [alias]

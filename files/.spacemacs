@@ -433,6 +433,7 @@ you should place your code here."
   (evil-leader/set-key "oM" 'spaceline-toggle-major-mode)
   (spaceline-toggle-minor-modes-off)
   (evil-leader/set-key "om" 'spaceline-toggle-minor-modes)
+  (evil-leader/set-key "od" 'markdown-mode)
   ;; no slide-y powerline separators
   (setq powerline-default-separator nil)
   (spaceline-compile)

@@ -1,5 +1,4 @@
-# added by Anaconda2 2.5.0 installer
-export PATH="/Users/nietaki/anaconda/bin:$PATH"
+export PATH=~/Library/Python/2.7/bin:$PATH
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash

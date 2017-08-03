@@ -439,6 +439,8 @@ you should place your code here."
   (spaceline-toggle-minor-modes-off)
   (evil-leader/set-key "om" 'spaceline-toggle-minor-modes)
   (evil-leader/set-key "od" 'markdown-mode)
+  ;; use `` to get back from where you jumped. Also, `SPC j i' is good for general jumping
+  (evil-leader/set-key "oj" 'alchemist-goto-list-symbol-definitions)
   ;; no slide-y powerline separators
   (setq powerline-default-separator nil)
   (spaceline-compile)

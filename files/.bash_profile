@@ -62,3 +62,5 @@ alias spc='emacs . &'
 
 export NVM_DIR="/Users/nietaki/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+alias jsonify='(cd ~/repos/toolbex/ && mix compile && mix run -e Toolbex.json_from_clipboard)'

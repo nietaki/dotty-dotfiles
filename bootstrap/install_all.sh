@@ -33,6 +33,8 @@ brew install wxmac
 brew install pt
 brew install cmatrix
 brew install tintin
+brew install ispell
+brew install emacs-plus
 
 brew tap caskroom/fonts
 

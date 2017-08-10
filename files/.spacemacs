@@ -441,6 +441,8 @@ you should place your code here."
   (evil-leader/set-key "od" 'markdown-mode)
   ;; use `` to get back from where you jumped. Also, `SPC j i' is good for general jumping
   (evil-leader/set-key "oj" 'alchemist-goto-list-symbol-definitions)
+  ;; typo checking
+  (evil-leader/set-key "ot" 'flyspell-mode)
   ;; no slide-y powerline separators
   (setq powerline-default-separator nil)
   (spaceline-compile)

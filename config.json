@@ -14,6 +14,7 @@
         "files/.vvvvvv": "~/.vvvvvv",
         "files/.tin": "~/.tin",
         "files/.spacemacs": "~/.spacemacs",
+        "files/.ispell_english": "~/.ispell_english",
         "files/.emacs.d/private/snippets/elixir-mode": "~/.emacs.d/private/snippets/elixir-mode",
         "files/.emacs.d/private/vue": "~/.emacs.d/private/vue"
     },

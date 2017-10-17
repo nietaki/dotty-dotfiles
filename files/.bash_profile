@@ -1,4 +1,5 @@
 export PATH=~/Library/Python/2.7/bin:$PATH
+export PATH=~/Library/Python/3.6/lib/python/site-packages:$PATH
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
@@ -66,3 +67,5 @@ export NVM_DIR="/Users/nietaki/.nvm"
 alias jsonify='(cd ~/repos/toolbex/ && mix compile && mix run -e Toolbex.json_from_clipboard)'
 
 alias purge_emacs_cache='rm -rf /Users/nietaki/.emacs.d/.cache/*'
+
+alias tf='terraform'

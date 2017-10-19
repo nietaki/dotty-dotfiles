@@ -69,3 +69,4 @@ alias jsonify='(cd ~/repos/toolbex/ && mix compile && mix run -e Toolbex.json_fr
 alias purge_emacs_cache='rm -rf /Users/nietaki/.emacs.d/.cache/*'
 
 alias tf='terraform'
+export HISTTIMEFORMAT="%d/%m/%y %T "

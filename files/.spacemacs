@@ -462,19 +462,26 @@ before packages are loaded."
   ;; Recreating some familiar Atom shortcuts
   ;; easier access to advanced global search, like with Atom
   (global-set-key (kbd "s-F") 'helm-do-ag)
+  (global-set-key (kbd "H-F") 'helm-do-ag)
   ;; global search-and-replace
   (global-set-key (kbd "s-R") 'projectile-replace)
+  (global-set-key (kbd "H-R") 'projectile-replace)
   ;; fuzzy finding a file in the project, even more like with Atom
   (global-set-key (kbd "s-t") 'helm-projectile-find-file)
+  (global-set-key (kbd "H-t") 'helm-projectile-find-file)
   ;; mimicking Atoms cmd+l, equivalent to M-x
   (global-set-key (kbd "s-l") 'helm-M-x)
+  (global-set-key (kbd "H-l") 'helm-M-x)
   ;; like going to file, only by history and recents
   (global-set-key (kbd "s-y") 'helm-mini)
+  (global-set-key (kbd "H-y") 'helm-mini)
   ;; neotree open whole project on current file
   ;; equivalent to `SPC p t'
   (global-set-key (kbd "s-\\") 'neotree-find-project-root)
+  (global-set-key (kbd "H-\\") 'neotree-find-project-root)
   ;; neotree open on current file, with just the directory context
   (global-set-key (kbd "s-|") 'neotree-toggle)
+  (global-set-key (kbd "H-|") 'neotree-toggle)
   ;; save all
   (evil-leader/set-key "ps" 'projectile-save-project-buffers)
   ;; unindent, alternative to "<<"

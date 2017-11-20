@@ -98,8 +98,6 @@ This function should only modify configuration layer settings."
    dotspacemacs-install-packages 'used-only
    ;; wider line spacing is > 0
    line-spacing 1
-   ;; full path in the window title
-   frame-title-format "%b (%f)"
    ))
 
 (defun dotspacemacs/init ()
@@ -319,7 +317,7 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t 
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -362,7 +360,9 @@ It should only modify the values of Spacemacs settings."
    ;; %z - mnemonics of buffer, terminal, and keyboard coding systems
    ;; %Z - like %z, but including the end-of-line format
    ;; (default "%I@%S")
-   dotspacemacs-frame-title-format "%I@%S"
+   ;; dotspacemacs-frame-title-format "%b (%f)"
+   ;; dotspacemacs-frame-title-format "%I@%S"
+   dotspacemacs-frame-title-format "%b @ %t (%f)"
    ;; Format specification for setting the icon title format
    ;; (default nil - same as frame-title-format)
    dotspacemacs-icon-title-format nil

@@ -379,8 +379,8 @@ It should only modify the values of Spacemacs settings."
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
    dotspacemacs-pretty-docs nil
-   js2-basic-offset 2
-   js-indent-level 2
+   js2-basic-offset 4
+   js-indent-level 4
    ))
 
 (defun dotspacemacs/user-init ()

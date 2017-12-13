@@ -70,3 +70,10 @@ alias purge_emacs_cache='rm -rf /Users/nietaki/.emacs.d/.cache/*'
 
 alias tf='terraform'
 export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# only using that key for quick experiments
+awssh_fun() {
+    ssh -i ~/ssh/JaceksEC2KeyPair.pem "ubuntu@$1"
+}
+
+alias awssh=awssh_fun

@@ -77,3 +77,10 @@ awssh_fun() {
 }
 
 alias awssh=awssh_fun
+
+fetch_certs_fun() {
+    rm ~/certs/*
+    scp -i ~/ssh/JaceksEC2KeyPair.pem "ubuntu@$1:~/certs/*" ~/certs/
+}
+
+alias fetch_certs=fetch_certs_fun

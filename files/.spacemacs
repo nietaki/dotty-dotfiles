@@ -36,7 +36,8 @@ This function should only modify configuration layer settings."
      vimscript
      erlang
      elixir
-     go
+     (go :variables
+         go-tab-width 4)
      docker
      latex
      ;; vue

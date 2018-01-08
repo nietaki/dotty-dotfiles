@@ -73,7 +73,7 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # only using that key for quick experiments
 awssh_fun() {
-    ssh -i ~/ssh/JaceksEC2KeyPair.pem "ubuntu@$1"
+    ssh -i ~/ssh/JaceksEC2KeyPair.pem -i ~/ssh/team_onyx_nodes.pem "ubuntu@$1"
 }
 
 alias awssh=awssh_fun
@@ -84,3 +84,7 @@ fetch_certs_fun() {
 }
 
 alias fetch_certs=fetch_certs_fun
+
+# go magic
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$(go env GOPATH)/bin

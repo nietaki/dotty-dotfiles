@@ -84,3 +84,5 @@ fetch_certs_fun() {
 }
 
 alias fetch_certs=fetch_certs_fun
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"

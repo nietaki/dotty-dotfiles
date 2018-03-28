@@ -86,3 +86,7 @@ fetch_certs_fun() {
 alias fetch_certs=fetch_certs_fun
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+export ERL_AFLAGS="-kernel shell_history enabled"
+touch ~/.iex_history

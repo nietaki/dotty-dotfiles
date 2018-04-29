@@ -14,3 +14,7 @@ sudo apt install fish
 
 # set fish as the default shell
 chsh -s `which fish`
+
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+#TODO checkout develop branch, run dotty to get emacs snippets and .spacemacs
+sudo apt install emacs

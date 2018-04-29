@@ -1,10 +1,11 @@
 {
     "directories": [
+        "~/.emacs.d/private/snippets"
     ],
 
     "link": {
         "bootstrap": "~/.bootstrap",
-        "files/.bash_profile": "~/.bash_profile",
+        "files/.bash_profile.bak": "~/.bash_profile.bak",
         "files/.git-prompt.sh": "~/.git-prompt.sh",
         "files/.gitconfig": "~/.gitconfig",
         "files/.gitignore_global": "~/.gitignore_global",
@@ -18,6 +19,7 @@
         "files/.emacs.d/private/snippets/elixir-mode": "~/.emacs.d/private/snippets/elixir-mode",
         "files/.emacs.d/private/vue": "~/.emacs.d/private/vue"
     },
+
 
     "copy": {
     },

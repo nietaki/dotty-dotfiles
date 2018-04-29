@@ -18,3 +18,5 @@ chsh -s `which fish`
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 #TODO checkout develop branch, run dotty to get emacs snippets and .spacemacs
 sudo apt install emacs
+
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.3

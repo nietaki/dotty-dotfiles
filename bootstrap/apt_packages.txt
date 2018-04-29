@@ -1,0 +1,9 @@
+git
+vim-nox
+htop
+wget
+ack
+cmatrix
+ispell
+
+

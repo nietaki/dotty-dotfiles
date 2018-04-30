@@ -25,3 +25,4 @@ tldr
 docker.io
 docker-compose
 zeal
+git-extras

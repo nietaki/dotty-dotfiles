@@ -1,9 +1,9 @@
 #!/bin/bash
 
+
 # TODO maybe change to stable/beta branch once it's out for bionic?
 sudo add-apt-repository ppa:fish-shell/nightly-master
 sudo apt update
-
 
 # yes, no accounting for which directory it got called from
 
@@ -20,3 +20,6 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 sudo apt install emacs
 
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.3
+
+# add the current user to the docker group so it can talk to the dockers
+usermod -a -G docker $USER

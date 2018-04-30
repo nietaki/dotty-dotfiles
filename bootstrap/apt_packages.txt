@@ -21,3 +21,7 @@ libgl1-mesa-dev
 libglu1-mesa-dev
 libpng-dev
 libssh-dev
+tldr
+docker.io
+docker-compose
+zeal

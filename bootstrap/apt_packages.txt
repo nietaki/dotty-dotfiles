@@ -26,3 +26,6 @@ docker.io
 docker-compose
 zeal
 git-extras
+pgadmin3
+fortune
+silversearcher-ag

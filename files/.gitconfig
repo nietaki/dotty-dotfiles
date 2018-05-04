@@ -12,6 +12,7 @@
   amend = commit -a --amend
   ca = commit -a
   push-simple = push -u origin HEAD
+  shove = push -u origin HEAD
   delete-merged-branches = ! git branch --merged master | grep -v \"\\* master\" | xargs -n 1 git branch -d
 	ego = line-summary
 	visual = log --oneline --decorate --graph --all

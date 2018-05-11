@@ -5,6 +5,8 @@
 [core]
   excludesfile = /Users/nietaki/.gitignore_global
 [alias]
+  branch-name = rev-parse --abbrev-ref HEAD
+  tug = !git pull origin $(git branch-name)
   st = status
   br = branch
   co = checkout

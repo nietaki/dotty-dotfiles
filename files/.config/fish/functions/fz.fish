@@ -1,4 +1,4 @@
-function fuzzy
+function fz
 	set all $argv[1..200]
 	# set first $argv[1]
 	#

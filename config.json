@@ -1,5 +1,6 @@
 {
     "directories": [
+        "~/.vscode",
         "~/.config",
         "~/.emacs.d/private/snippets"
     ],
@@ -19,7 +20,8 @@
         "files/.ispell_english": "~/.ispell_english",
         "files/.emacs.d/private/snippets/elixir-mode": "~/.emacs.d/private/snippets/elixir-mode",
         "files/.emacs.d/private/vue": "~/.emacs.d/private/vue",
-        "files/.config/fish": "~/.config/fish"
+        "files/.config/fish": "~/.config/fish",
+        "files/.vscode/tasks.json": "~/.vscode/tasks.json"
     },
 
 

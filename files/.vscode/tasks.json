@@ -1,0 +1,32 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    // variables reference: https://code.visualstudio.com/docs/editor/variables-reference
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "iamdev format",
+            "type": "shell",
+            "command": "./bin/scheduler run ${workspaceFolderBasename} mix format",
+            "options": {
+                "cwd": "${workspaceFolder}/../../iamdev/"
+            }
+        },
+        {
+            "label": "service tests",
+            "type": "shell",
+            "command": "./bin/service-test ${workspaceFolderBasename}",
+            "options": {
+                "cwd": "${workspaceFolder}/../../iamdev/"
+            }
+        },
+        {
+            "label": "service tests: current file",
+            "type": "shell",
+            "command": "./bin/service-test ${workspaceFolderBasename} ${relativeFile}",
+            "options": {
+                "cwd": "${workspaceFolder}/../../iamdev/"
+            }
+        }
+    ]
+}

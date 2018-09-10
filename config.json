@@ -21,7 +21,9 @@
         "files/.emacs.d/private/snippets/elixir-mode": "~/.emacs.d/private/snippets/elixir-mode",
         "files/.emacs.d/private/vue": "~/.emacs.d/private/vue",
         "files/.config/fish": "~/.config/fish",
-        "files/.vscode/tasks.json": "~/.vscode/tasks.json"
+        "files/.vscode/tasks.json": "~/.vscode/tasks.json",
+        "files/.aspell.en.prepl": "~/.aspell.en.prepl",
+        "files/.aspell.en.pws": "~/.aspell.en.pws"
     },
 
 

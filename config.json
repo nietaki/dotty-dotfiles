@@ -23,7 +23,8 @@
         "files/.config/fish": "~/.config/fish",
         "files/.vscode/tasks.json": "~/.vscode/tasks.json",
         "files/.aspell.en.prepl": "~/.aspell.en.prepl",
-        "files/.aspell.en.pws": "~/.aspell.en.pws"
+        "files/.aspell.en.pws": "~/.aspell.en.pws",
+        "files/.zshrc": "~/.zshrc"
     },
 
 

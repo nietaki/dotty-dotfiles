@@ -20,9 +20,9 @@ brew install midnight-commander
 brew install openjpeg
 brew install postgresql
 brew install python
-brew install rebar
-brew install ruby
-brew install sbt
+#brew install rebar
+#brew install ruby
+#brew install sbt
 #brew install spark
 brew install unar
 brew install unixodbc
@@ -34,7 +34,12 @@ brew install pt
 brew install cmatrix
 brew install tintin
 brew install ispell
+brew tap d12frosted/emacs-plus
 brew install emacs-plus
+brew linkapps emacs-plus
+
+#brew install emacs-plus
+brew install the_silver_searcher 
 
 brew tap caskroom/fonts
 

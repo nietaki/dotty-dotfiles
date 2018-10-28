@@ -1,14 +1,9 @@
 anki
-betterzipql
 bonjour-browser
 calibre
 dropbox
 handbrake
 hex-fiend
-hipchat
-iterm2
-pgadmin3
-plex-home-theater
 qlcolorcode
 qlmarkdown
 qlprettypatch
@@ -17,7 +12,6 @@ quicklook-csv
 quicklook-json
 skim
 skype
-slicy
 spotify
 steam
 sublime-text
@@ -33,3 +27,4 @@ sourcetree
 whatsapp
 bettertouchtool
 font-source-code-pro
+deluge

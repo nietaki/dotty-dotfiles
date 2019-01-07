@@ -316,7 +316,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  (setq ispell-program-name "aspell"
+        ;; force the English dictionary, support Camel Case spelling check (tested with aspell 0.6)
+        ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together" "--run-together-limit=5" "--run-together-min=2"))
+)
 
 ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
 (defun my-setup-indent (n)
@@ -353,6 +356,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq-default line-spacing 1)
+  (setq-default dotspacemacs-excluded-packages '(emmet-mode))
   (setq projectile-project-search-path '("~/repos/"))
   ;; Make evil-mode up/down operate in screen lines instead of logical lines
   (define-key evil-motion-state-map "j" 'evil-next-visual-line)

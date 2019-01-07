@@ -366,6 +366,9 @@ you should place your code here."
   (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
   ;; treat underscores as parts of words in Elixir
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'elixir-mode-hook #'(lambda () (flyspell-mode 1)))
+  (add-hook 'markdown-mode-hook #'(lambda () (flyspell-mode 1)))
+
   ;; (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?: " ")))
   ;; unbind undo, at least some of the time
   (add-to-list 'spacemacs-indent-sensitive-modes 'elixir-mode)

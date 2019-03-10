@@ -316,9 +316,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  ;; damn flyspell overwriting my shortcuts!
+  (eval-after-load "flyspell" '(define-key flyspell-mode-map (kbd "C-;") nil))
+  (setq flyspell-mark-duplications-flag nil)
   (setq ispell-program-name "aspell"
         ;; force the English dictionary, support Camel Case spelling check (tested with aspell 0.6)
-        ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together" "--run-together-limit=5" "--run-together-min=2"))
+        ispell-extra-args '("--sug-mode=ultra" "--lang=en_GB" "--run-together" "--run-together-limit=5" "--run-together-min=2"))
 )
 
 ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html

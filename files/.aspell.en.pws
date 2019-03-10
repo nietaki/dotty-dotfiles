@@ -1,29 +1,36 @@
-personal_ws-1.1 en 72 
+personal_ws-1.1 en 82 
+ibeacon
 uuids
 th
 PostgreSQL
 bing
 json
 LDN
+iso
 url
 config
 utc
 Postgres
+Utils
 MVC
 architecting
 spacemacs
 ElixirConf
 Erlang
-ECS
+defp
 AWS
+ECS
 scalable
 datetime
 Raxx
 kitesurfing
+uuid
+UUID
 PHP
 Meijer
 sname
 Tadeusz
+fn
 rexbug
 RDBMS
 AutoSuggest
@@ -39,6 +46,7 @@ codebase
 travis
 Enum
 Greenplum
+ristretto
 charlists
 defmodule
 Gojko
@@ -50,11 +58,12 @@ ElixirLive
 OTP
 Adzic
 Królikowski
+gbp
+GBP
 STO
 pos
 remsh
 ecto
-Ecto
 Typespecs
 Jacek
 ok
@@ -71,3 +80,4 @@ Zend
 Terraform
 symfony
 Ansible
+vip

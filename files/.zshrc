@@ -111,3 +111,8 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 export VISUAL='vim'
+
+# leftovers from thinker
+# export PATH="/home/nietaki/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"

@@ -116,3 +116,8 @@ export VISUAL='vim'
 # export PATH="/home/nietaki/.pyenv/bin:$PATH"
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
+#
+#
+export PATH=$PATH:/usr/local/sbin
+
+eval "$(direnv hook zsh)"

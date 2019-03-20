@@ -12,15 +12,18 @@ cd dotty-dotfiles
 python3 dotty/dotty.py config.json
 ```
 
-
 ## Bootstrapping a fresh OSX install
 
 (after you've run dotty)
 ```bash
-cd ~/.bootstrap
-./install_all.sh
+./bootstrap/install_all.sh
 ```
 
+## Bootstrapping a fresh Ubuntu install
+
+```bash
+cd ~/bootsrap/bootstrap_ubuntu.sh
+```
 
 ## Atom editor config
 

@@ -1,10 +1,11 @@
+zsh
 git
 vim-nox
 htop
 wget
 ack
 cmatrix
-ispell
+aspell
 mc
 curl
 httpie
@@ -29,3 +30,4 @@ git-extras
 pgadmin3
 fortune
 silversearcher-ag
+emacs

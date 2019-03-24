@@ -31,3 +31,4 @@ pgadmin3
 fortune
 silversearcher-ag
 emacs
+direnv

@@ -118,6 +118,8 @@ export VISUAL='vim'
 # eval "$(pyenv virtualenv-init -)"
 #
 #
-export PATH=$PATH:/usr/local/sbin
+# export PATH=$PATH:/usr/local/sbin:/snap/bin
 
 eval "$(direnv hook zsh)"
+
+# emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'

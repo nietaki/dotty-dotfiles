@@ -2,7 +2,8 @@
     "directories": [
         "~/.vscode",
         "~/.config",
-        "~/.emacs.d/private/snippets"
+        "~/.emacs.d/private/snippets",
+        "~/.fonts"
     ],
 
     "link": {
@@ -27,8 +28,14 @@
         "files/.zshrc": "~/.zshrc"
     },
 
-
     "copy": {
+        "files/fonts/SourceCodePro-Black.ttf": "~/.fonts/SourceCodePro-Black.ttf",
+        "files/fonts/SourceCodePro-Bold.ttf": "~/.fonts/SourceCodePro-Bold.ttf",
+        "files/fonts/SourceCodePro-ExtraLight.ttf": "~/.fonts/SourceCodePro-ExtraLight.ttf",
+        "files/fonts/SourceCodePro-Light.ttf": "~/.fonts/SourceCodePro-Light.ttf",
+        "files/fonts/SourceCodePro-Medium.ttf": "~/.fonts/SourceCodePro-Medium.ttf",
+        "files/fonts/SourceCodePro-Regular.ttf": "~/.fonts/SourceCodePro-Regular.ttf",
+        "files/fonts/SourceCodePro-Semibold.ttf": "~/.fonts/SourceCodePro-Semibold.ttf"
     },
 
     "commands": [

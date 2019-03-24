@@ -22,7 +22,8 @@ python3 dotty/dotty.py config.json
 ## Bootstrapping a fresh Ubuntu install
 
 ```bash
-cd ~/bootsrap/bootstrap_ubuntu.sh
+cd bootstrap
+./bootstrap_ubuntu.sh
 ```
 
 ## Atom editor config

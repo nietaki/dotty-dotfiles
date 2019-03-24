@@ -3,7 +3,8 @@
         "~/.vscode",
         "~/.config",
         "~/.emacs.d/private/snippets",
-        "~/.fonts"
+        "~/.fonts",
+        "~/.ssh"
     ],
 
     "link": {
@@ -25,7 +26,8 @@
         "files/.vscode/tasks.json": "~/.vscode/tasks.json",
         "files/.aspell.en.prepl": "~/.aspell.en.prepl",
         "files/.aspell.en.pws": "~/.aspell.en.pws",
-        "files/.zshrc": "~/.zshrc"
+        "files/.zshrc": "~/.zshrc",
+        "files/.ssh/config": "~/.ssh/config"
     },
 
     "copy": {

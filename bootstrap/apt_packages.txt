@@ -32,3 +32,5 @@ fortune
 silversearcher-ag
 emacs
 direnv
+ncdu
+partitionmanager

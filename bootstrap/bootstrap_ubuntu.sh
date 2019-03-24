@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
 set -x
 
-
 # yes, no accounting for which directory it got called from
-
-# other, special cases
-# sudo apt install fish
-
-# set fish as the default shell
-# chsh -s `which fish`
 
 sudo apt install git
 
@@ -21,12 +14,12 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.0
 # add the current user to the docker group so it can talk to the dockers
 # usermod -a -G docker $USER
 
-# TODO asdf
-# TODO chsh zhs
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 chsh -s $(which zsh)
 
-#LINE='emulate sh -c \'source /etc/profile.d/apps-bin-path.sh\''
-#emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
+## making sure snap apps show up in the menus even though we're using zsh
+LINE="emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'"
+FILE="/etc/zsh/zprofile"
+
+grep -qF "$LINE" "$FILE" || echo "$LINE" | sudo tee -a "$FILE"

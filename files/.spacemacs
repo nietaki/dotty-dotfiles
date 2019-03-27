@@ -32,10 +32,9 @@ values."
    dotspacemacs-configuration-layers
    '(ansible
      shell-scripts
-     ruby
-     javascript
+     ;; javascript
      yaml
-     html
+     ;; html
      elixir
      docker
      ;; ----------------------------------------------------------------
@@ -62,7 +61,13 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(seti-theme asn1-mode alchemist)
+   dotspacemacs-additional-packages '(
+                                      seti-theme
+                                      asn1-mode
+                                      alchemist
+                                      json-mode
+                                      json-reformat
+                                                 )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -478,7 +483,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (yasnippet-snippets yaml-mode ws-butler writeroom-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit symon string-inflection spaceline-all-the-icons smeargle slim-mode seti-theme seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters pug-mode prettier-js popwin persp-mode password-generator paradox overseer org-bullets open-junk-file ob-elixir neotree nameless move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode json-navigator js2-refactor js-doc insert-shebang indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flycheck-mix flycheck-credo flycheck-bashate flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline dockerfile-mode docker diminish diff-hl define-word counsel-projectile company-web company-tern company-statistics company-shell company-ansible column-enforce-mode clean-aindent-mode chruby centered-cursor-mode bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-compile asn1-mode ansible-doc ansible alchemist aggressive-indent ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (yasnippet-snippets yaml-mode ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package string-inflection spaceline-all-the-icons smeargle seti-theme robe restart-emacs rainbow-delimiters popwin persp-mode paradox org-bullets open-junk-file ob-elixir neotree nameless move-text mmm-mode minitest magit-svn magit-gitflow macrostep lorem-ipsum link-hint insert-shebang indent-guide impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag golden-ratio gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy font-lock+ flycheck-mix flycheck-credo flycheck-bashate flx-ido fill-column-indicator eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu emmet-mode editorconfig dumb-jump dotenv-mode doom-modeline dockerfile-mode diminish diff-hl define-word counsel-projectile company-web company-tern company-statistics company-shell company-ansible column-enforce-mode clean-aindent-mode centered-cursor-mode bundler browse-at-remote auto-yasnippet auto-highlight-symbol auto-compile asn1-mode ansible-doc ansible alchemist ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(powerline-color1 "#3d3d68")
  '(powerline-color2 "#292945"))
 (custom-set-faces

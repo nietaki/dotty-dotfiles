@@ -462,7 +462,6 @@ you should place your code here."
   (add-to-list 'auto-mode-alist '("\\.asn$" . asn1-mode))
   (add-to-list 'auto-mode-alist '("\\.gdmo$" . asn1-mode))
   ;; alchemist shim setup
-  (setenv "PATH" (concat "/home/nietaki/.asdf/shims:/home/nietaki/.asdf/bin:" (getenv "PATH")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

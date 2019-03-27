@@ -23,3 +23,12 @@ LINE="emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'"
 FILE="/etc/zsh/zprofile"
 
 grep -qF "$LINE" "$FILE" || echo "$LINE" | sudo tee -a "$FILE"
+
+# installing couchdb
+echo "deb https://apache.bintray.com/couchdb-deb bionic main" | sudo tee -a /etc/apt/sources.list
+curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add -
+sudo apt-get update && sudo apt-get install couchdb
+
+curl https://pyenv.run | bash
+
+zsh ./ubuntu_post_install.sh

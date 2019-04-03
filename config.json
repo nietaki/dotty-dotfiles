@@ -27,6 +27,7 @@
         "files/.aspell.en.prepl": "~/.aspell.en.prepl",
         "files/.aspell.en.pws": "~/.aspell.en.pws",
         "files/.zshrc": "~/.zshrc",
+        "files/.bashrc": "~/.bashrc",
         "files/.ssh/config": "~/.ssh/config"
     },
 

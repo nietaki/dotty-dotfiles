@@ -404,7 +404,7 @@ you should place your code here."
   (ahs-set-idle-interval 1.5)
   ;; Recreating some familiar Atom shortcuts
   ;; easier access to advanced global search, like with Atom
-  (global-set-key (kbd "C-F") 'helm-do-ag)
+  (global-set-key (kbd "C-S-f") 'helm-do-ag)
   ;; (un)comment line
   (global-set-key (kbd "C-;") 'spacemacs/comment-or-uncomment-lines)
   ;; fuzzy finding a file in the project, even more like with Atom

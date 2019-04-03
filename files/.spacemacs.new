@@ -462,6 +462,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
         ;; force the English dictionary, support Camel Case spelling check (tested with aspell 0.6)
         ispell-extra-args '("--sug-mode=ultra" "--lang=en_GB" "--run-together" "--run-together-limit=5" "--run-together-min=2"))
 
+  (setq standard-indent 2)
+  (setq sh-basic-offset 2)
   )
 
 ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
@@ -477,6 +479,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq-local web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq-local web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq-local css-indent-offset n) ; css-mode
+
+  (setq standard-indent n)
+  (setq sh-basic-offset n)
   )
 
 (defun two-spaces ()
@@ -516,8 +521,11 @@ before packages are loaded."
   (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
   ;; treat underscores as parts of words in Elixir
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'json-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-hook 'elixir-mode-hook #'(lambda () (flyspell-mode 1)))
   (add-hook 'markdown-mode-hook #'(lambda () (flyspell-mode 1)))
+  ;; (add-hook 'elixir-mode-hook
+  ;;           (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
   (add-hook 'neotree-mode-hook
             (lambda ()
               ;; https://www.emacswiki.org/emacs/NeoTree
@@ -536,6 +544,8 @@ before packages are loaded."
   ;; (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?: " ")))
   ;; unbind undo, at least some of the time
   (add-to-list 'spacemacs-indent-sensitive-modes 'elixir-mode)
+  (add-to-list 'spacemacs-indent-sensitive-modes 'asn1-mode)
+  (add-to-list 'spacemacs-indent-sensitive-modes 'shell-script-mode)
   (setq alchemist-test-truncate-lines nil)
   ;; configuring automatic symbol highlight, manually available at `SPC s h'
   (spacemacs/toggle-automatic-symbol-highlight)

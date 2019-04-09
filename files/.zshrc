@@ -115,6 +115,7 @@ export EDITOR='vim'
 export VISUAL='vim'
 
 export PATH="/home/nietaki/.pyenv/bin:$PATH"
+export PATH="/home/nietaki/apps:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 #

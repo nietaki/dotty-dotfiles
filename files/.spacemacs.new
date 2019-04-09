@@ -33,7 +33,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(sql
+     erlang
      ansible
      shell-scripts
      yaml
@@ -482,6 +483,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (setq standard-indent n)
   (setq sh-basic-offset n)
+  (setq tab-width n)
   )
 
 (defun two-spaces ()
@@ -576,10 +578,11 @@ before packages are loaded."
   (add-hook 'alchemist-mode-hook 'company-mode)
   ;; showing modified files in neotree
   (setq neo-vc-integration '(face))
+  (evil-leader/set-key "bo" 'spacemacs/kill-other-buffers)
   ;; restarting alchemist server
   (evil-leader/set-key "mR" 'alchemist-server-start)
-  ;; quickly searching for current word
   (spacemacs/declare-prefix "o" "magic")
+  ;; quickly searching for current word
   ;; don't use this, just use * instead
   (evil-leader/set-key "os" 'evil-search-word-forward)
   (evil-leader/set-key "oS" 'evil-search-word-backward)
@@ -630,7 +633,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (neotree yasnippet-snippets yaml-mode smeargle seti-theme ob-elixir org-plus-contrib mmm-mode markdown-toc markdown-mode magit-svn magit-gitflow jinja2-mode insert-shebang helm-gitignore request helm-git-grep helm-company helm-c-yasnippet gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flycheck-mix flycheck-credo flycheck-bashate fish-mode evil-magit magit transient git-commit with-editor dockerfile-mode docker tablist magit-popup docker-tramp diff-hl company-tern dash-functional company-statistics company-shell company-ansible browse-at-remote auto-yasnippet asn1-mode ansible-doc ansible alchemist elixir-mode ac-ispell auto-complete web-beautify tern prettier-js livid-mode skewer-mode js2-refactor yasnippet multiple-cursors js2-mode js-doc impatient-mode htmlize simple-httpd helm-gtags ggtags flycheck evil-matchit counsel-gtags counsel swiper ivy company add-node-modules-path which-key use-package treemacs-projectile treemacs-evil pcre2el overseer nameless macrostep helm-xref helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag evil-mc elisp-slime-nav dotenv-mode diminish bind-map auto-compile ace-jump-helm-line))))
+    (sql-indent erlang neotree yasnippet-snippets yaml-mode smeargle seti-theme ob-elixir org-plus-contrib mmm-mode markdown-toc markdown-mode magit-svn magit-gitflow jinja2-mode insert-shebang helm-gitignore request helm-git-grep helm-company helm-c-yasnippet gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flycheck-mix flycheck-credo flycheck-bashate fish-mode evil-magit magit transient git-commit with-editor dockerfile-mode docker tablist magit-popup docker-tramp diff-hl company-tern dash-functional company-statistics company-shell company-ansible browse-at-remote auto-yasnippet asn1-mode ansible-doc ansible alchemist elixir-mode ac-ispell auto-complete web-beautify tern prettier-js livid-mode skewer-mode js2-refactor yasnippet multiple-cursors js2-mode js-doc impatient-mode htmlize simple-httpd helm-gtags ggtags flycheck evil-matchit counsel-gtags counsel swiper ivy company add-node-modules-path which-key use-package treemacs-projectile treemacs-evil pcre2el overseer nameless macrostep helm-xref helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag evil-mc elisp-slime-nav dotenv-mode diminish bind-map auto-compile ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

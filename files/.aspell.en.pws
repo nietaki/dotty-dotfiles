@@ -1,4 +1,4 @@
-personal_ws-1.1 en 82 
+personal_ws-1.1 en 81 
 ibeacon
 uuids
 th
@@ -15,22 +15,22 @@ Utils
 MVC
 architecting
 spacemacs
+upsert
 ElixirConf
 Erlang
 defp
-AWS
 ECS
+AWS
 scalable
 datetime
 Raxx
 kitesurfing
 uuid
-UUID
 PHP
 Meijer
+fn
 sname
 Tadeusz
-fn
 rexbug
 RDBMS
 AutoSuggest
@@ -44,9 +44,9 @@ Czacki
 Buildkite
 codebase
 travis
+ristretto
 Enum
 Greenplum
-ristretto
 charlists
 defmodule
 Gojko
@@ -59,7 +59,6 @@ OTP
 Adzic
 Królikowski
 gbp
-GBP
 STO
 pos
 remsh

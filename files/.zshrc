@@ -116,6 +116,7 @@ export VISUAL='vim'
 
 export PATH="/home/nietaki/.pyenv/bin:$PATH"
 export PATH="/home/nietaki/apps:$PATH"
+export PATH="/home/nietaki/apps/exercism:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 #
@@ -128,3 +129,13 @@ eval "$(direnv hook zsh)"
 
 # for backend scripts and all-around convenience
 alias open=xdg-open
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function exhe () {
+  iex -e "require IEx.Helpers; IEx.Helpers.h($argv); :erlang.halt"
+}
+
+unsetopt AUTO_CD

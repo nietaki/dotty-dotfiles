@@ -536,7 +536,6 @@ before packages are loaded."
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-hook 'json-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
-  (defvar lsp-elixir--config-options (make-hash-table))
   (add-hook 'lsp-after-initialize-hook
             (lambda ()
               (lsp--set-configuration `(:elixirLS (:dialyzerEnabled :json-false)))))
@@ -565,8 +564,9 @@ before packages are loaded."
     ("M-SPC" . company-complete)
     :config
     (push 'company-lsp company-backends)
-    (setq company-idle-delay 0)
-    (setq company-minimum-prefix-length 1))
+    ;; (setq company-idle-delay 1)
+    ;; (setq company-minimum-prefix-length 1)
+    )
   ;; END @mosic copy
   (add-hook 'neotree-mode-hook
             (lambda ()

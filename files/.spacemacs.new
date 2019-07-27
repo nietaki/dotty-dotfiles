@@ -43,6 +43,7 @@ This function should only modify configuration layer settings."
      shell-scripts
      yaml
      elixir
+     lsp
      docker
      javascript
      ;; html
@@ -78,9 +79,10 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(
+                                      elixir-mode
                                       seti-theme
                                       asn1-mode
-                                      alchemist
+                                      ;; alchemist
                                       json-mode
                                       json-reformat
                                       )
@@ -89,7 +91,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(alchemist)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -299,7 +301,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.15
+   dotspacemacs-which-key-delay 0.05
 
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
@@ -473,6 +475,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (setq standard-indent 2)
   (setq sh-basic-offset 2)
+
   )
 
 ;; http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
@@ -521,7 +524,7 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq-default line-spacing 1)
-  (setq-default dotspacemacs-excluded-packages '(emmet-mode))
+  (setq-default dotspacemacs-excluded-packages '(emmet-mode alchemist))
   (setq projectile-project-search-path '("~/repos/"))
   ;; Make evil-mode up/down operate in screen lines instead of logical lines
   (define-key evil-motion-state-map "j" 'evil-next-visual-line)
@@ -532,10 +535,39 @@ before packages are loaded."
   ;; treat underscores as parts of words in Elixir
   (add-hook 'elixir-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-hook 'json-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+  (defvar lsp-elixir--config-options (make-hash-table))
+  (add-hook 'lsp-after-initialize-hook
+            (lambda ()
+              (lsp--set-configuration `(:elixirLS (:dialyzerEnabled :json-false)))))
+
   (add-hook 'elixir-mode-hook #'(lambda () (flyspell-mode 1)))
   (add-hook 'markdown-mode-hook #'(lambda () (flyspell-mode 1)))
   ;; (add-hook 'elixir-mode-hook
   ;;           (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+  ;; Set up elixir layer with elixir-ls
+  ;; START @mosic copy
+  (use-package elixir-mode)
+  ;; (use-package yasnippet)
+  (use-package lsp-mode
+    :bind ("C-c h" . lsp-describe-thing-at-point)
+    :commands lsp
+    :ensure t
+    :diminish lsp-mode
+    :hook
+    (elixir-mode . lsp)
+    :init
+    (add-to-list 'exec-path "~/repos/elixir-ls/")
+    (setq lsp-ui-doc-enable nil))
+  (use-package company)
+  (use-package company-lsp
+    :bind
+    ("M-SPC" . company-complete)
+    :config
+    (push 'company-lsp company-backends)
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 1))
+  ;; END @mosic copy
   (add-hook 'neotree-mode-hook
             (lambda ()
               ;; https://www.emacswiki.org/emacs/NeoTree
@@ -556,7 +588,7 @@ before packages are loaded."
   (add-to-list 'spacemacs-indent-sensitive-modes 'elixir-mode)
   (add-to-list 'spacemacs-indent-sensitive-modes 'asn1-mode)
   (add-to-list 'spacemacs-indent-sensitive-modes 'shell-script-mode)
-  (setq alchemist-test-truncate-lines nil)
+  ;; (setq alchemist-test-truncate-lines nil)
   ;; configuring automatic symbol highlight, manually available at `SPC s h'
   (spacemacs/toggle-automatic-symbol-highlight)
   (ahs-set-idle-interval 1.5)
@@ -583,12 +615,12 @@ before packages are loaded."
   ;; I need my Polish characters
   (setq mac-right-option-modifier nil)
   ;; enabling company mode for elixir
-  (add-hook 'alchemist-mode-hook 'company-mode)
+  ;; (add-hook 'alchemist-mode-hook 'company-mode)
   ;; showing modified files in neotree
   (setq neo-vc-integration '(face))
   (evil-leader/set-key "bo" 'spacemacs/kill-other-buffers)
   ;; restarting alchemist server
-  (evil-leader/set-key "mR" 'alchemist-server-start)
+  ;; (evil-leader/set-key "mR" 'alchemist-server-start)
   (spacemacs/declare-prefix "o" "magic")
   ;; quickly searching for current word
   ;; don't use this, just use * instead
@@ -604,7 +636,7 @@ before packages are loaded."
   (evil-leader/set-key "om" 'spaceline-toggle-minor-modes)
   (evil-leader/set-key "od" 'markdown-mode)
   ;; use `` to get back from where you jumped. Also, `SPC j i' is good for general jumping
-  (evil-leader/set-key "oj" 'alchemist-goto-list-symbol-definitions)
+  ;; (evil-leader/set-key "oj" 'alchemist-goto-list-symbol-definitions)
   ;; typo checking
   (evil-leader/set-key "ot" 'flyspell-mode)
   (spacemacs/toggle-indent-guide-globally-on)
@@ -616,6 +648,7 @@ before packages are loaded."
        (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
        (define-key git-gutter+-mode-map (kbd "M-k") 'git-gutter+-previous-hunk)
        ))
+
   ;; tabs in insert mode
   ;; (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
@@ -641,7 +674,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (counsel-css typit mmt sudoku pacmacs 2048-game yapfify stickyfunc-enhance pytest pyenv-mode py-isort pippel pipenv pyvenv pip-requirements live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-cscope xcscope cython-mode company-anaconda anaconda-mode pythonic company-terraform terraform-mode hcl-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data sql-indent erlang neotree yasnippet-snippets yaml-mode smeargle seti-theme ob-elixir org-plus-contrib mmm-mode markdown-toc markdown-mode magit-svn magit-gitflow jinja2-mode insert-shebang helm-gitignore request helm-git-grep helm-company helm-c-yasnippet gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flycheck-mix flycheck-credo flycheck-bashate fish-mode evil-magit magit transient git-commit with-editor dockerfile-mode docker tablist magit-popup docker-tramp diff-hl company-tern dash-functional company-statistics company-shell company-ansible browse-at-remote auto-yasnippet asn1-mode ansible-doc ansible alchemist elixir-mode ac-ispell auto-complete web-beautify tern prettier-js livid-mode skewer-mode js2-refactor yasnippet multiple-cursors js2-mode js-doc impatient-mode htmlize simple-httpd helm-gtags ggtags flycheck evil-matchit counsel-gtags counsel swiper ivy company add-node-modules-path which-key use-package treemacs-projectile treemacs-evil pcre2el overseer nameless macrostep helm-xref helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag evil-mc elisp-slime-nav dotenv-mode diminish bind-map auto-compile ace-jump-helm-line))))
+    (alchemist lsp-ui company-lsp lsp-mode ht counsel-css typit mmt sudoku pacmacs 2048-game yapfify stickyfunc-enhance pytest pyenv-mode py-isort pippel pipenv pyvenv pip-requirements live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-cscope xcscope cython-mode company-anaconda anaconda-mode pythonic company-terraform terraform-mode hcl-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data sql-indent erlang neotree yasnippet-snippets yaml-mode smeargle seti-theme ob-elixir org-plus-contrib mmm-mode markdown-toc markdown-mode magit-svn magit-gitflow jinja2-mode insert-shebang helm-gitignore request helm-git-grep helm-company helm-c-yasnippet gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flycheck-mix flycheck-credo flycheck-bashate fish-mode evil-magit magit transient git-commit with-editor dockerfile-mode docker tablist magit-popup docker-tramp diff-hl company-tern dash-functional company-statistics company-shell company-ansible browse-at-remote auto-yasnippet asn1-mode ansible-doc ansible elixir-mode ac-ispell auto-complete web-beautify tern prettier-js livid-mode skewer-mode js2-refactor yasnippet multiple-cursors js2-mode js-doc impatient-mode htmlize simple-httpd helm-gtags ggtags flycheck evil-matchit counsel-gtags counsel swiper ivy company add-node-modules-path which-key use-package treemacs-projectile treemacs-evil pcre2el overseer nameless macrostep helm-xref helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag evil-mc elisp-slime-nav dotenv-mode diminish bind-map auto-compile ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

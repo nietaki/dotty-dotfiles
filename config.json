@@ -2,6 +2,7 @@
     "directories": [
         "~/.vscode",
         "~/.config",
+        "~/.config/nvim",
         "~/.emacs.d/private/snippets",
         "~/.fonts",
         "~/.ssh"
@@ -15,6 +16,7 @@
         "files/.gitignore_global": "~/.gitignore_global",
         "files/.tool-versions": "~/.tool-versions",
         "files/.vimrc": "~/.vimrc",
+        "files/.config/nvim/init.vim": "~/.config/nvim/init.vim",
         "files/.mc": "~/.mc",
         "files/.vvvvvv": "~/.vvvvvv",
         "files/.tin": "~/.tin",
@@ -38,7 +40,8 @@
         "files/fonts/SourceCodePro-Light.ttf": "~/.fonts/SourceCodePro-Light.ttf",
         "files/fonts/SourceCodePro-Medium.ttf": "~/.fonts/SourceCodePro-Medium.ttf",
         "files/fonts/SourceCodePro-Regular.ttf": "~/.fonts/SourceCodePro-Regular.ttf",
-        "files/fonts/SourceCodePro-Semibold.ttf": "~/.fonts/SourceCodePro-Semibold.ttf"
+        "files/fonts/SourceCodePro-Semibold.ttf": "~/.fonts/SourceCodePro-Semibold.ttf",
+        "files/plug.vim": "~/.local/share/nvim/site/autoload/plug.vim"
     },
 
     "commands": [

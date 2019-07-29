@@ -61,7 +61,7 @@ match ExtraWhitespace /\s\+$\|\t/
 
 set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
-set gdefault            " Use 'g' flag by default with :s/foo/bar/.
+"set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -97,6 +97,7 @@ Plug 'scrooloose/nerdcommenter'
 " themes
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
+Plug 'srcery-colors/srcery-vim'
 call plug#end()
 
 " edit .vimrc
@@ -109,11 +110,19 @@ nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 
 map <C-\> :NERDTreeToggle<CR>
+map <M-\> :NERDTreeFind<CR>
+map <C-o> :NERDTreeFind<CR>
 
 " go to file in project
-map <C-l> :CtrlP<CR>
+"map <C-l> :CtrlP<CR>
+"nmap <Leader>/ :GFiles<CR>
+" TODO: more FZF fun(current buffer, open buffers): https://github.com/junegunn/fzf.vim
+nmap <C-l> :FZF<CR>
+imap <C-l> <Esc>:FZF<CR>
+
 " go to file in open buffers
-nnoremap <Leader>bb :CtrlPBuffer<CR>
+"nnoremap <Leader>bb :CtrlPBuffer<CR>
+nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bl :ls<CR>
 " go to file in recent files
 nnoremap <Leader>br :CtrlPMRUFiles<CR>
@@ -128,41 +137,37 @@ nnoremap <Leader>wj <C-W><C-J>
 nnoremap <Leader>wk <C-W><C-K>
 nnoremap <Leader>wh <C-W><C-H>
 nnoremap <Leader>wn <C-W><C-W>
-nnoremap <Leader>wm <C-W>_
+" maximize the window
+nmap <Leader>wm <C-W>_ <C-W>\|
+" distribute the windows equally
 nnoremap <Leader>w= <C-W>=
 
 " splitting
 nnoremap <Leader>w/ :vsp<CR>
 nnoremap <Leader>w- :sp <CR>
 nnoremap <Leader>wd :hide<CR>
+" save all open buffers
 nnoremap <Leader>ps :wa<CR>
-nnoremap <Leader>ff :e ~
+" refresh the currently edited file from disk
+nnoremap <Leader>fr :e!<CR>
+"TODO https://vi.stackexchange.com/questions/458/how-can-i-reload-all-buffers-at-once
+
+" navigating between git changes
+nmap <leader>gj <plug>(signify-next-hunk)
+" S- is shift
+nmap <S-j> <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
+nmap <S-k> <plug>(signify-prev-hunk)
+
+nmap <leader>gJ 9999<leader>gj
+nmap <leader>gK 9999<leader>gk
 
 "search
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 nmap <Leader>/ :Ag<CR>
-
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nnoremap <Leader>qq :qa<CR>
-
-"highlight clear SignColumn
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-highlight GitGutterChangeDelete ctermfg=yellow
-
-"" highlight lines in Sy and vimdiff etc.)
-
-"highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-"highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-"highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-
-"" highlight signs in Sy
-
-"highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=119
-"highlight SignifySignDelete cterm=bold ctermbg=none  ctermfg=167
-"highlight SignifySignChange cterm=bold ctermbg=none  ctermfg=227
-
 
 let g:NERDCustomDelimiters = {
             \ 'c': { 'leftAlt': '/*', 'rightAlt': '*/', 'left': '//' },
@@ -174,7 +179,14 @@ nmap <leader>cc <plug>NERDCommenterToggle
 vmap <leader>cc <plug>NERDCommenterToggle gv
 
 nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gp :Gpush<CR>
+nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gll :Gbrowse<CR>
+nmap <Leader>gg :Git
 
 
 "colorscheme onedark
-colorscheme molokai
+"colorscheme molokai
+"colorscheme default
+colorscheme srcery

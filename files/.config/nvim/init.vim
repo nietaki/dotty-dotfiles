@@ -150,6 +150,7 @@ nnoremap <Leader>wd :hide<CR>
 nnoremap <Leader>ps :wa<CR>
 " refresh the currently edited file from disk
 nnoremap <Leader>fr :e!<CR>
+nnoremap <Leader>ff :e ~/
 "TODO https://vi.stackexchange.com/questions/458/how-can-i-reload-all-buffers-at-once
 
 " navigating between git changes
@@ -162,10 +163,14 @@ nmap <S-k> <plug>(signify-prev-hunk)
 nmap <leader>gJ 9999<leader>gj
 nmap <leader>gK 9999<leader>gk
 
-"search
+" ctrl-p and ctrl-n for previous fzf searches
+let g:fzf_history_dir = '~/.fzf-history'
+
+"search just the contents
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 nmap <Leader>/ :Ag<CR>
+nmap <Leader>b/ :BLines<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nnoremap <Leader>qq :qa<CR>
 
@@ -184,7 +189,14 @@ nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gll :Gbrowse<CR>
 nmap <Leader>gg :Git
+" search through commits
+nmap <Leader>g/c :Commits<CR>
+" search through commits for the current file
+nmap <Leader>g/b :BCommits<CR>
 
+":set ttimeoutlen 5000
+" make the leadr key timeout a bit longer
+:set timeoutlen=4000
 
 "colorscheme onedark
 "colorscheme molokai

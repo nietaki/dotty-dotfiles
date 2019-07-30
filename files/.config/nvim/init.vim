@@ -121,11 +121,11 @@ nmap <C-l> :FZF<CR>
 imap <C-l> <Esc>:FZF<CR>
 
 " go to file in open buffers
-"nnoremap <Leader>bb :CtrlPBuffer<CR>
 nnoremap <Leader>bb :Buffers<CR>
 nnoremap <Leader>bl :ls<CR>
 " go to file in recent files
 nnoremap <Leader>br :CtrlPMRUFiles<CR>
+nnoremap <Leader>bh :CtrlPMRUFiles<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
 nnoremap <Leader><tab> :bp<CR>
 nnoremap <Leader>bp :bp<CR>
@@ -150,14 +150,16 @@ nnoremap <Leader>wd :hide<CR>
 nnoremap <Leader>ps :wa<CR>
 " refresh the currently edited file from disk
 nnoremap <Leader>fr :e!<CR>
-"TODO https://vi.stackexchange.com/questions/458/how-can-i-reload-all-buffers-at-once
+" https://vi.stackexchange.com/questions/458/how-can-i-reload-all-buffers-at-once
+nnoremap <Leader>fR :checktime<CR>
+nnoremap <Leader>ff :e ~/
 
 " navigating between git changes
 nmap <leader>gj <plug>(signify-next-hunk)
 " S- is shift
-nmap <S-j> <plug>(signify-next-hunk)
+nmap <C-j> <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
-nmap <S-k> <plug>(signify-prev-hunk)
+nmap <C-k> <plug>(signify-prev-hunk)
 
 nmap <leader>gJ 9999<leader>gj
 nmap <leader>gK 9999<leader>gk
@@ -183,7 +185,7 @@ nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gll :Gbrowse<CR>
-nmap <Leader>gg :Git
+nmap <Leader>gg :Git 
 
 
 "colorscheme onedark

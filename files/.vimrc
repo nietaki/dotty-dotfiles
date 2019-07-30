@@ -45,3 +45,6 @@ vmap k gk
 
 "z deva
 syntax on
+
+" highlight the line the cursor is in
+set cursorline

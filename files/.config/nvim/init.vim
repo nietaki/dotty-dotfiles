@@ -21,6 +21,10 @@ if (empty($TMUX))
   endif
 endif
 
+
+" TODO group these (search, git, navigation, files, editor config)
+" TODO clean up unused stuff
+
 syntax on
 
 " Map the leader key to SPACE
@@ -98,12 +102,20 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
+
+" cp for copying 
+" cv for pasting from the system clipboard (doesn't work?)
+" cpiw to copy word into system clipboard
+Plug 'christoomey/vim-system-copy'
 call plug#end()
 
-" edit .vimrc
+" edit .init.vim
 nnoremap <Leader>fed :e ~/.config/nvim/init.vim<CR>
+" edit .vimrc
+nnoremap <Leader>fev :e ~/.vimrc<CR>
 
-" source .vimrc
+" source .init.vim
+nnoremap <Leader>fer :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>feR :so ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>pu :PlugUpdate<CR>
@@ -149,10 +161,10 @@ nnoremap <Leader>wd :hide<CR>
 " save all open buffers
 nnoremap <Leader>ps :wa<CR>
 " refresh the currently edited file from disk
-nnoremap <Leader>fr :e!<CR>
+nnoremap <Leader>fR :e!<CR>
 
 " https://vi.stackexchange.com/questions/458/how-can-i-reload-all-buffers-at-once
-nnoremap <Leader>fR :checktime<CR>
+nnoremap <Leader>fr :checktime<CR>
 nnoremap <Leader>ff :e ~/
 
 " navigating between git changes
@@ -171,9 +183,15 @@ let g:fzf_history_dir = '~/.fzf-history'
 "search just the contents
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+" TODO and set this to <Leader>*
+"fu! FzfAgCurrWord()
+  "call fzf#vim#ag(expand('<cword>'))
+"endfu
+
 nmap <Leader>/ :Ag<CR>
 nmap <Leader>b/ :BLines<CR>
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+" --hidden makes ag not skip the hidden files when searching
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
 nnoremap <Leader>qq :qa<CR>
 
 let g:NERDCustomDelimiters = {
@@ -190,11 +208,21 @@ nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gp :Gpush<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gll :Gbrowse<CR>
-nmap <Leader>gg :Git
+" the trailing space is here for a reason!
+nmap <Leader>gg :Git 
 " search through commits
 nmap <Leader>g/c :Commits<CR>
 " search through commits for the current file
 nmap <Leader>g/b :BCommits<CR>
+
+" Terminal!
+nmap <Leader>tt :terminal<CR>
+" exiting terminal mode with Esc
+" this messes up fzf a bit
+"tnoremap <Esc> <C-\><C-n>
+tnoremap <C-i> <C-\><C-n>
+" openint terminal in Terminal-mode (ready to go)
+autocmd TermOpen * startinsert
 
 ":set ttimeoutlen 5000
 " make the leadr key timeout a bit longer
@@ -204,3 +232,9 @@ nmap <Leader>g/b :BCommits<CR>
 "colorscheme molokai
 "colorscheme default
 colorscheme srcery
+
+
+" this disables the branch name in the config
+let g:airline_section_b = airline#section#create(['hunks'])
+" this disables the utf-8[unix] part
+let g:airline_section_y = airline#section#create([])

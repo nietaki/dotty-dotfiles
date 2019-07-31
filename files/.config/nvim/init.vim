@@ -102,11 +102,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
-
-" cp for copying 
-" cv for pasting from the system clipboard (doesn't work?)
-" cpiw to copy word into system clipboard
-"Plug 'christoomey/vim-system-copy'
 call plug#end()
 
 " edit .init.vim
@@ -139,7 +134,9 @@ nnoremap <Leader>bl :ls<CR>
 nnoremap <Leader>br :CtrlPMRUFiles<CR>
 nnoremap <Leader>bh :CtrlPMRUFiles<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
-nnoremap <Leader><tab> :bp<CR>
+
+" switching between the last two buffers in the window
+nnoremap <Leader><tab> :b#<CR>
 nnoremap <Leader>bp :bp<CR>
 nnoremap <Leader>bn :bn<CR>
 
@@ -207,8 +204,6 @@ let g:NERDCustomDelimiters = {
             \ }
 nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle gv
-nmap <leader>cc <plug>NERDCommenterToggle
-vmap <leader>cc <plug>NERDCommenterToggle gv
 
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gc :Gcommit<CR>
@@ -225,6 +220,14 @@ nmap <Leader>g/b :BCommits<CR>
 " system clipboard copy in visual mode
 " thanks @lpil!
 vmap <C-c> "+y
+
+" dashes are parts of words
+set iskeyword+=-
+
+nmap <Leader>yw byw
+nmap <Leader>yW ByW
+nmap <C-c> b"+yw
+"nmap <Leader>cw b"+yw
 
 " Terminal!
 nmap <Leader>tt :terminal<CR>

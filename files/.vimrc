@@ -25,12 +25,12 @@ set ofu=syntaxcomplete#Complete
 
 ":imap }} }<Esc>i<Return><Esc>ki<Tab>
 
-:map <S-tab> :bn<CR>
-:imap <S-tab> <Esc>:bn<CR>
-:map <S-w> :bdelete<CR>
+":map <S-tab> :bn<CR>
+":imap <S-tab> <Esc>:bn<CR>
+":map <S-w> :bdelete<CR>
 
-"testy
-:nmap <F2> 30i<Space>                                
+"tests
+":nmap <F2> 30i<Space>                                
 
 map <Down> g<Down>
 map <Up> g<Up>

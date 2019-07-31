@@ -106,7 +106,7 @@ Plug 'srcery-colors/srcery-vim'
 " cp for copying 
 " cv for pasting from the system clipboard (doesn't work?)
 " cpiw to copy word into system clipboard
-Plug 'christoomey/vim-system-copy'
+"Plug 'christoomey/vim-system-copy'
 call plug#end()
 
 " edit .init.vim
@@ -181,14 +181,21 @@ nmap <leader>gK 9999<leader>gk
 let g:fzf_history_dir = '~/.fzf-history'
 
 "search just the contents
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+" TODO another, fuzzier version without --no-sort
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--no-sort --delimiter : --nth 4..'}, <bang>0)
+command! -bang -nargs=* AgFuzzy call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " TODO and set this to <Leader>*
 "fu! FzfAgCurrWord()
   "call fzf#vim#ag(expand('<cword>'))
 "endfu
 
+nmap <Leader>sf :AgFuzzy<CR>
+" intentional space
+"nmap <Leader>/ :Ag 
 nmap <Leader>/ :Ag<CR>
+" resume last :Ag search
+nmap <Leader>sl :Ag<CR><C-p>
 nmap <Leader>b/ :BLines<CR>
 " --hidden makes ag not skip the hidden files when searching
 let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
@@ -205,7 +212,7 @@ vmap <leader>cc <plug>NERDCommenterToggle gv
 
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gc :Gcommit<CR>
-nmap <Leader>gp :Gpush<CR>
+nmap <Leader>gp :Git shove<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gll :Gbrowse<CR>
 " the trailing space is here for a reason!
@@ -214,6 +221,10 @@ nmap <Leader>gg :Git
 nmap <Leader>g/c :Commits<CR>
 " search through commits for the current file
 nmap <Leader>g/b :BCommits<CR>
+
+" system clipboard copy in visual mode
+" thanks @lpil!
+vmap <C-c> "+y
 
 " Terminal!
 nmap <Leader>tt :terminal<CR>
@@ -232,7 +243,6 @@ autocmd TermOpen * startinsert
 "colorscheme molokai
 "colorscheme default
 colorscheme srcery
-
 
 " this disables the branch name in the config
 let g:airline_section_b = airline#section#create(['hunks'])

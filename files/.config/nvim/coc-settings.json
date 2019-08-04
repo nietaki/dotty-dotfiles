@@ -1,0 +1,15 @@
+{
+    "languageserver": {
+     "elixirLS": {
+      "command": "/home/nietaki/repos/elixir-ls/language_server.sh",
+      "filetypes": ["elixir", "eelixir"],
+      "cwd": ".",
+      "settings": {
+        "elixirLS.dialyzerEnabled": false,
+        "elixirLS": {
+          "dialyzerEnabled": false
+        }
+      }
+     }
+  }
+}

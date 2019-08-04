@@ -16,7 +16,7 @@
         "files/.gitignore_global": "~/.gitignore_global",
         "files/.tool-versions": "~/.tool-versions",
         "files/.vimrc": "~/.vimrc",
-        "files/.config/nvim/init.vim": "~/.config/nvim/init.vim",
+        "files/.config/nvim": "~/.config/nvim",
         "files/.mc": "~/.mc",
         "files/.vvvvvv": "~/.vvvvvv",
         "files/.tin": "~/.tin",

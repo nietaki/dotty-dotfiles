@@ -26,6 +26,8 @@ endif
 " TODO clean up unused stuff
 
 syntax on
+" https://vim.fandom.com/wiki/Fix_syntax_highlighting
+syntax sync minlines=200
 
 " Map the leader key to SPACE
 let mapleader="\<SPACE>"
@@ -98,10 +100,13 @@ Plug 'mhinz/vim-signify'
 Plug 'wesQ3/vim-windowswap'
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " themes
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
+
 call plug#end()
 
 " edit .init.vim
@@ -125,14 +130,15 @@ map <C-o> :NERDTreeFind<CR>
 "nmap <Leader>/ :GFiles<CR>
 " TODO: more FZF fun(current buffer, open buffers): https://github.com/junegunn/fzf.vim
 nmap <C-l> :FZF<CR>
-imap <C-l> <Esc>:FZF<CR>
+" This ruins stuff?
+" imap <C-l> <Esc>:FZF<CR>
 
-" go to file in open buffers
-nnoremap <Leader>bb :Buffers<CR>
+" recent buffers
+nnoremap <Leader>bb :CtrlPMRUFiles<CR>
+" c stands for "current"
+nnoremap <Leader>bc :Buffers<CR>
 nnoremap <Leader>bl :ls<CR>
 " go to file in recent files
-nnoremap <Leader>br :CtrlPMRUFiles<CR>
-nnoremap <Leader>bh :CtrlPMRUFiles<CR>
 nnoremap <Leader>bd :bp\|bd #<CR>
 
 " switching between the last two buffers in the window
@@ -187,10 +193,10 @@ command! -bang -nargs=* AgFuzzy call fzf#vim#ag(<q-args>, {'options': '--delimit
   "call fzf#vim#ag(expand('<cword>'))
 "endfu
 
-nmap <Leader>sf :AgFuzzy<CR>
+nmap <Leader>sf :Ag<CR>
 " intentional space
 "nmap <Leader>/ :Ag 
-nmap <Leader>/ :Ag<CR>
+nmap <Leader>/ :AgFuzzy<CR>
 " resume last :Ag search
 nmap <Leader>sl :Ag<CR><C-p>
 nmap <Leader>b/ :BLines<CR>
@@ -240,7 +246,10 @@ autocmd TermOpen * startinsert
 
 ":set ttimeoutlen 5000
 " make the leadr key timeout a bit longer
-:set timeoutlen=4000
+set timeoutlen=4000
+
+set foldmethod=manual
+"set foldmethod=indent
 
 "colorscheme onedark
 "colorscheme molokai
@@ -251,3 +260,40 @@ colorscheme srcery
 let g:airline_section_b = airline#section#create(['hunks'])
 " this disables the utf-8[unix] part
 let g:airline_section_y = airline#section#create([])
+
+set spell
+set spelllang=en
+
+" for :checkhealth TODO
+" let g:python_host_prog
+" those are virtualenv paths, could be any python executables
+let g:python_host_prog='/home/nietaki/.pyenv/versions/neovim-27/bin/python'
+let g:python3_host_prog='/home/nietaki/.pyenv/versions/neovim-370/bin/python3'
+
+"set esckeys
+"inoremap <S-Tab> <C-n>
+
+" CoC vim
+" e tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"<Paste>
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)

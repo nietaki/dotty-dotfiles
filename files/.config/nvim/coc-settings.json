@@ -5,7 +5,6 @@
       "filetypes": ["elixir", "eelixir"],
       "cwd": ".",
       "settings": {
-        "elixirLS.dialyzerEnabled": false,
         "elixirLS": {
           "dialyzerEnabled": false
         }

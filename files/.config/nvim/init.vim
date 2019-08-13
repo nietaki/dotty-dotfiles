@@ -1,8 +1,14 @@
-"using vim config
+"""
+""" Vim defaults integration
+"""
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
 source ~/.vimrc
+
+"""
+""" Fixing colours (makes the theme work)
+"""
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -20,16 +26,29 @@ if (empty($TMUX))
   endif
 endif
 
+" Nuclear option
+"set termguicolors
+
 
 " TODO group these (search, git, navigation, files, editor config)
 " TODO clean up unused stuff
 
-syntax on
-" https://vim.fandom.com/wiki/Fix_syntax_highlighting
-syntax sync minlines=200
+"""
+""" General settings
+"""
 
 " Map the leader key to SPACE
 let mapleader="\<SPACE>"
+
+" make the leader key timeout a bit longer
+set timeoutlen=4000
+
+set foldmethod=manual
+"set foldmethod=indent
+
+" turn comment/text spellcheck on
+set spell
+set spelllang=en
 
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
@@ -60,6 +79,7 @@ if &listchars ==# 'eol:$'
 endif
 set list                " Show problematic characters.
 
+" TODO fix this
 " Also highlight all tabs and trailing whitespace characters.
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$\|\t/
@@ -68,16 +88,14 @@ set ignorecase          " Make searching case insensitive
 set smartcase           " ... unless the query has capital letters.
 "set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 
-" Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-endif
+" see :checkhealth for if this works
+" those are virtualenv paths, could be any python executables
+let g:python_host_prog='/home/nietaki/.pyenv/versions/neovim-27/bin/python'
+let g:python3_host_prog='/home/nietaki/.pyenv/versions/neovim-370/bin/python3'
 
-" Search and Replace
-nmap <Leader>s :%s//g<Left><Left>
-
-" true color
-"set termguicolors
+"""
+""" Plugins
+"""
 
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -92,9 +110,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'jesseleite/vim-agriculture'
 Plug 'mhinz/vim-signify'
-"Plug 'airblade/vim-gitgutter'
 
 Plug 'wesQ3/vim-windowswap'
 Plug 'scrooloose/nerdcommenter'
@@ -108,6 +124,13 @@ Plug 'srcery-colors/srcery-vim'
 
 call plug#end()
 
+nnoremap <Leader>pu :PlugUpdate<CR>
+nnoremap <Leader>pc :PlugClean<CR>
+
+"""
+""" Navigating to standard files, reloading the config
+"""
+
 " edit .init.vim
 nnoremap <Leader>fed :e ~/.config/nvim/init.vim<CR>
 " edit .vimrc
@@ -117,28 +140,11 @@ nnoremap <Leader>fev :e ~/.vimrc<CR>
 nnoremap <Leader>fer :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>feR :so ~/.config/nvim/init.vim<CR>
 
-nnoremap <Leader>pu :PlugUpdate<CR>
-nnoremap <Leader>pc :PlugClean<CR>
+nnoremap <Leader>ff :e ~/
 
-map <C-\> :NERDTreeToggle<CR>
-map <M-\> :NERDTreeFind<CR>
-map <C-o> :NERDTreeFind<CR>
-
-" go to file in project
-"map <C-l> :CtrlP<CR>
-"nmap <Leader>/ :GFiles<CR>
-" TODO: more FZF fun(current buffer, open buffers): https://github.com/junegunn/fzf.vim
-nmap <C-l> :FZF<CR>
-" This ruins stuff?
-" imap <C-l> <Esc>:FZF<CR>
-
-" recent buffers
-nnoremap <Leader>bb :CtrlPMRUFiles<CR>
-" c stands for "current"
-nnoremap <Leader>bc :Buffers<CR>
-nnoremap <Leader>bl :ls<CR>
-" go to file in recent files
-nnoremap <Leader>bd :bp\|bd #<CR>
+"""
+""" Managing windows and buffers
+"""
 
 " switching between the last two buffers in the window
 nnoremap <Leader><tab> :b#<CR>
@@ -167,20 +173,37 @@ nnoremap <Leader>fR :e!<CR>
 
 " https://vi.stackexchange.com/questions/458/how-can-i-reload-all-buffers-at-once
 nnoremap <Leader>fr :checktime<CR>
-nnoremap <Leader>ff :e ~/
 
-" navigating between git changes
-nmap <leader>gj <plug>(signify-next-hunk)
-" S- is shift
-nmap <C-j> <plug>(signify-next-hunk)
-nmap <leader>gk <plug>(signify-prev-hunk)
-nmap <C-k> <plug>(signify-prev-hunk)
+map <C-\> :NERDTreeToggle<CR>
+" opens the current file in nerdtree 
+map <C-o> :NERDTreeFind<CR>
 
-nmap <leader>gJ 9999<leader>gj
-nmap <leader>gK 9999<leader>gk
+" close currently open buffer
+nnoremap <Leader>bd :bp\|bd #<CR>
+
+" quit
+nnoremap <Leader>qq :qa<CR>
+
+"""
+""" Searching and stuff
+"""
+
+" Search and Replace
+"nmap <Leader>ss :%s//g<Left><Left>
+
+" --hidden makes ag not skip the hidden files when searching
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
 
 " ctrl-p and ctrl-n for previous fzf searches
 let g:fzf_history_dir = '~/.fzf-history'
+
+" go to file in project
+nmap <C-l> :FZF<CR>
+
+" recent buffers
+nnoremap <Leader>bb :CtrlPMRUFiles<CR>
+" c stands for "current"
+nnoremap <Leader>bc :Buffers<CR>
 
 "search just the contents
 " TODO another, fuzzier version without --no-sort
@@ -199,16 +222,17 @@ nmap <Leader>/ :AgFuzzy<CR>
 " resume last :Ag search
 nmap <Leader>sl :Ag<CR><C-p>
 nmap <Leader>b/ :BLines<CR>
-" --hidden makes ag not skip the hidden files when searching
-let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
-nnoremap <Leader>qq :qa<CR>
 
-let g:NERDCustomDelimiters = {
-            \ 'c': { 'leftAlt': '/*', 'rightAlt': '*/', 'left': '//' },
-            \ 'cpp': { 'leftAlt': '/*', 'rightAlt': '*/', 'left': '//' }
-            \ }
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle gv
+"""
+""" Git stuff
+"""
+
+" navigating between git changes
+nmap <C-j> <plug>(signify-next-hunk)
+nmap <C-k> <plug>(signify-prev-hunk)
+"nmap <leader>gJ 9999<leader>gj
+"nmap <leader>gK 9999<leader>gk
+
 
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gc :Gcommit<CR>
@@ -222,33 +246,49 @@ nmap <Leader>g/c :Commits<CR>
 " search through commits for the current file
 nmap <Leader>g/b :BCommits<CR>
 
+"""
+""" Editing
+"""
+
+" TODO fix the commenting out being weird (spaces and positioning)
+" that's actually C-/
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle gv
+
+let g:NERDCustomDelimiters = {
+            \ 'c': { 'leftAlt': '/*', 'rightAlt': '*/', 'left': '//' },
+            \ 'cpp': { 'leftAlt': '/*', 'rightAlt': '*/', 'left': '//' }
+            \ }
+
 " system clipboard copy in visual mode
 " thanks @lpil!
-vmap <C-c> "+y
+"vmap <C-c> "+y
+"nmap <C-c> b"+yw
 
-" dashes are parts of words
-set iskeyword+=-
+" copy the visual selection
+vmap <Leader>cc "+y
+" copy word
+nmap <Leader>cw b"+yw
+" copy Word - capitals move over interpunction
+nmap <Leader>cW B"+yW
+" paste
+nmap <Leader>cp "+p
+" paste before
+nmap <Leader>cP "+P
 
-nmap <Leader>yw byw
-nmap <Leader>yW ByW
-nmap <C-c> b"+yw
-"nmap <Leader>cw b"+yw
+"""
+""" Terminal
+"""
 
-" Terminal!
 nmap <Leader>tt :terminal<CR>
-" exiting terminal mode with Esc
-" this messes up fzf a bit
-"tnoremap <Esc> <C-\><C-n>
+" exiting terminal mode with <C-i>
 tnoremap <C-i> <C-\><C-n>
 " openint terminal in Terminal-mode (ready to go)
 autocmd TermOpen * startinsert
 
-":set ttimeoutlen 5000
-" make the leadr key timeout a bit longer
-set timeoutlen=4000
-
-set foldmethod=manual
-"set foldmethod=indent
+"""
+""" Look & feel
+"""
 
 "colorscheme onedark
 "colorscheme molokai
@@ -260,20 +300,13 @@ let g:airline_section_b = airline#section#create(['hunks'])
 " this disables the utf-8[unix] part
 let g:airline_section_y = airline#section#create([])
 
-set spell
-set spelllang=en
+"""
+""" IDE stuff / completion / CoC nvim
+"""
 
-" for :checkhealth TODO
-" let g:python_host_prog
-" those are virtualenv paths, could be any python executables
-let g:python_host_prog='/home/nietaki/.pyenv/versions/neovim-27/bin/python'
-let g:python3_host_prog='/home/nietaki/.pyenv/versions/neovim-370/bin/python3'
+""" Copied from CoC nvim README
 
-"set esckeys
-"inoremap <S-Tab> <C-n>
-
-" CoC vim
-" e tab for trigger completion with characters ahead and navigate.
+" usee tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -296,3 +329,71 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> ,gd <Plug>(coc-definition)
+nmap <silent> ,gy <Plug>(coc-type-definition)
+nmap <silent> ,gi <Plug>(coc-implementation)
+nmap <silent> ,gr <Plug>(coc-references)
+
+" THIS IS BEAUTIFUL
+" show documentation in preview window
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> ,hh :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" TODO fix this, it doesn't work
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <silent> ,er <Plug>(coc-rename)
+
+" Remap for do codeAction of current line
+nmap <silent> ,al  <Plug>(coc-codeaction)
+nmap <silent> ,ef  <Plug>(coc-fix-current)
+
+nmap <silent> ,ff :Format<CR>
+"command! -nargs=0 FormatBuffer :call CocAction('format')
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+"xmap <leader>f  <Plug>(coc-format-selected)
+"nmap <leader>f  <Plug>(coc-format-selected)
+
+
+" TODO continue here
+" show completion server logs
+nmap <silent> ,ll :CocCommand workspace.showOutput<CR>
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> ,lw  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>

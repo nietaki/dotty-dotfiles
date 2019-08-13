@@ -26,12 +26,16 @@ nmap k gk
 vmap j gj
 vmap k gk
 
+" dashes are parts of words
+set iskeyword+=-
+
 "pasts
 ":map <C-p> :set  paste<CR>
 :set pastetoggle=<C-p>
 
-"z deva
 syntax on
+" https://vim.fandom.com/wiki/Fix_syntax_highlighting
+syntax sync minlines=200
 
 " highlight the line the cursor is in
 set cursorline

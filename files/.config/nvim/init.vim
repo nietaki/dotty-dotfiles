@@ -113,7 +113,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 
 Plug 'wesQ3/vim-windowswap'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -250,15 +250,8 @@ nmap <Leader>g/b :BCommits<CR>
 """ Editing
 """
 
-" TODO fix the commenting out being weird (spaces and positioning)
-" that's actually C-/
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle gv
-
-let g:NERDCustomDelimiters = {
-            \ 'c': { 'leftAlt': '/*', 'rightAlt': '*/', 'left': '//' },
-            \ 'cpp': { 'leftAlt': '/*', 'rightAlt': '*/', 'left': '//' }
-            \ }
+nmap <C-_> gcc
+vmap <C-_> gc
 
 " system clipboard copy in visual mode
 " thanks @lpil!
@@ -275,6 +268,18 @@ nmap <Leader>cW B"+yW
 nmap <Leader>cp "+p
 " paste before
 nmap <Leader>cP "+P
+
+" relative path (src/foo.txt)
+nnoremap <leader>cf :let @+=expand("%")<CR>
+
+" absolute path (/something/src/foo.txt)
+nnoremap <leader>cF :let @+=expand("%:p")<CR>
+
+" filename (foo.txt)
+nnoremap <leader>ct :let @+=expand("%:t")<CR>
+
+" directory name (/something/src)
+nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
 """
 """ Terminal
@@ -306,7 +311,11 @@ let g:airline_section_y = airline#section#create([])
 
 """ Copied from CoC nvim README
 
-" usee tab for trigger completion with characters ahead and navigate.
+set hidden
+set nobackup
+set nowritebackup
+
+" uske tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -326,9 +335,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> ,gd <Plug>(coc-definition)
@@ -358,7 +364,6 @@ nmap <silent> ,er <Plug>(coc-rename)
 
 " Remap for do codeAction of current line
 nmap <silent> ,al  <Plug>(coc-codeaction)
-nmap <silent> ,ef  <Plug>(coc-fix-current)
 
 nmap <silent> ,ff :Format<CR>
 "command! -nargs=0 FormatBuffer :call CocAction('format')
@@ -380,20 +385,31 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " show completion server logs
 nmap <silent> ,ll :CocCommand workspace.showOutput<CR>
 
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> ,lw  :<C-u>CocList diagnostics<cr>
+" Warnings List
+nnoremap <silent> ,wl  :<C-u>CocList diagnostics<cr>
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ,wN <Plug>(coc-diagnostic-prev)
+nmap <silent> ,wp <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> ,wn <Plug>(coc-diagnostic-next)
+nmap <silent> ,wf  <Plug>(coc-fix-current)
+
+nmap <silent> ,ws <Plug>(coc-diagnostic-info)
+nmap <silent> ,ww <Plug>(coc-diagnostic-info)
+
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> ,c  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> ,o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> ,s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> ,n  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> ,N  :<C-u>CocPrev<CR>
+nnoremap <silent> ,p  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> ,sl  :<C-u>CocListResume<CR>

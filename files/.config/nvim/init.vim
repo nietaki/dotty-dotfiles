@@ -168,6 +168,9 @@ nnoremap <Leader>w- :sp <CR>
 nnoremap <Leader>wd :hide<CR>
 " save all open buffers
 nnoremap <Leader>ps :wa<CR>
+" set Project Root to directory containing current file
+nnoremap <Leader>pr :lcd %:h<CR>
+nnoremap <Leader>pR :pwd<CR>
 " refresh the currently edited file from disk
 nnoremap <Leader>fR :e!<CR>
 
@@ -177,6 +180,22 @@ nnoremap <Leader>fr :checktime<CR>
 map <C-\> :NERDTreeToggle<CR>
 " opens the current file in nerdtree 
 map <C-o> :NERDTreeFind<CR>
+
+" tabs
+nnoremap <Leader>te :tabedit 
+nnoremap <Leader>tl :tabnext<CR>
+nnoremap <Leader>th :tabprevious<CR>
+nnoremap <Leader>tp :tabprevious<CR>
+nnoremap <Leader>tN :tabprevious<CR>
+nnoremap <Leader>tn :tabnext<CR>
+nnoremap <Leader>1 :1tabnext<CR>
+nnoremap <Leader>2 :2tabnext<CR>
+nnoremap <Leader>3 :3tabnext<CR>
+nnoremap <Leader>4 :4tabnext<CR>
+nnoremap <Leader>5 :5tabnext<CR>
+nnoremap <Leader>6 :6tabnext<CR>
+
+"TODO setting root dir for tabs
 
 " close currently open buffer
 nnoremap <Leader>bd :bp\|bd #<CR>
@@ -281,11 +300,15 @@ nnoremap <leader>ct :let @+=expand("%:t")<CR>
 " directory name (/something/src)
 nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
+"insert newline where the cursor is
+nnoremap K i<CR><Esc>l
+
 """
 """ Terminal
 """
 
-nmap <Leader>tt :terminal<CR>
+" just use :te
+" nmap <Leader>tt :terminal<CR>
 " exiting terminal mode with <C-i>
 tnoremap <C-i> <C-\><C-n>
 " openint terminal in Terminal-mode (ready to go)
@@ -338,6 +361,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> ,gd <Plug>(coc-definition)
+nmap <silent> ,gg <Plug>(coc-definition)
 nmap <silent> ,gy <Plug>(coc-type-definition)
 nmap <silent> ,gi <Plug>(coc-implementation)
 nmap <silent> ,gr <Plug>(coc-references)
@@ -413,3 +437,6 @@ nnoremap <silent> ,N  :<C-u>CocPrev<CR>
 nnoremap <silent> ,p  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> ,sl  :<C-u>CocListResume<CR>
+
+" it's this time again
+nmap ,cl :silent !pdflatex %<CR>

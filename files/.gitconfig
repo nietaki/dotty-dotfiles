@@ -3,7 +3,7 @@
 	email = nietaki@gmail.com
 	useconfigonly = true
 [core]
-  excludesfile = /Users/nietaki/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [alias]
   branch-name = rev-parse --abbrev-ref HEAD
   tug = !git pull origin $(git branch-name)

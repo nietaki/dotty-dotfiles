@@ -47,8 +47,15 @@ set foldmethod=manual
 "set foldmethod=indent
 
 " turn comment/text spellcheck on
-set spell
+" set spell
+autocmd FileType tex setlocal spell
+autocmd FileType markdown setlocal spell
+autocmd FileType text setlocal spell
 set spelllang=en
+
+" disable continuing of the comments
+" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
@@ -116,11 +123,14 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-commentary'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'terryma/vim-multiple-cursors'
+Plug 'nelstrom/vim-visual-star-search'
 
 " themes
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
+Plug 'gcmt/taboo.vim'
 
 call plug#end()
 
@@ -157,6 +167,9 @@ nnoremap <Leader>wj <C-W><C-J>
 nnoremap <Leader>wk <C-W><C-K>
 nnoremap <Leader>wh <C-W><C-H>
 nnoremap <Leader>wn <C-W><C-W>
+" open file:line under cursor in new window
+nnoremap <Leader>wf <C-W>F
+
 " maximize the window
 nmap <Leader>wm <C-W>_ <C-W>\|
 " distribute the windows equally
@@ -169,7 +182,8 @@ nnoremap <Leader>wd :hide<CR>
 " save all open buffers
 nnoremap <Leader>ps :wa<CR>
 " set Project Root to directory containing current file
-nnoremap <Leader>pr :lcd %:h<CR>
+nnoremap <Leader>pr :lcd %:p:h<CR>
+nmap ,pr <Leader>pr
 nnoremap <Leader>pR :pwd<CR>
 " refresh the currently edited file from disk
 nnoremap <Leader>fR :e!<CR>
@@ -182,12 +196,16 @@ map <C-\> :NERDTreeToggle<CR>
 map <C-o> :NERDTreeFind<CR>
 
 " tabs
+
+nnoremap <Leader>tt :tabnew<CR>
 nnoremap <Leader>te :tabedit 
 nnoremap <Leader>tl :tabnext<CR>
 nnoremap <Leader>th :tabprevious<CR>
 nnoremap <Leader>tp :tabprevious<CR>
 nnoremap <Leader>tN :tabprevious<CR>
 nnoremap <Leader>tn :tabnext<CR>
+nnoremap <Leader>td :tabclose<CR>
+nnoremap <Leader>tc :tabclose<CR>
 nnoremap <Leader>1 :1tabnext<CR>
 nnoremap <Leader>2 :2tabnext<CR>
 nnoremap <Leader>3 :3tabnext<CR>
@@ -219,8 +237,16 @@ let g:fzf_history_dir = '~/.fzf-history'
 " go to file in project
 nmap <C-l> :FZF<CR>
 
-" recent buffers
-nnoremap <Leader>bb :CtrlPMRUFiles<CR>
+" remember, we can always go to file with gf
+nnoremap <Leader>gf gF
+nnoremap <Leader>wf <C-w>F
+" map <Leader>wf :vertical wincmd f<CR>
+" ,, is the working directory
+set path=.,,apps/chat,apps/auth,apps/shared,/usr/include,
+
+nnoremap <Leader>bb :CtrlPBuffer<CR>
+" recent buffer history
+nnoremap <Leader>bh :CtrlPMRUFiles<CR>
 " c stands for "current"
 nnoremap <Leader>bc :Buffers<CR>
 
@@ -241,6 +267,10 @@ nmap <Leader>/ :AgFuzzy<CR>
 " resume last :Ag search
 nmap <Leader>sl :Ag<CR><C-p>
 nmap <Leader>b/ :BLines<CR>
+
+" count literal searches in this file
+nmap <Leader>sc :vimgrep //g%
+" afterwards you can move between them using :cnext and :cprev
 
 """
 """ Git stuff
@@ -404,10 +434,13 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 "xmap <leader>f  <Plug>(coc-format-selected)
 "nmap <leader>f  <Plug>(coc-format-selected)
 
+" Show commands
+nnoremap <silent> ,cc  :<C-u>CocList commands<cr>
 
-" TODO continue here
 " show completion server logs
 nmap <silent> ,ll :CocCommand workspace.showOutput<CR>
+" nmap <silent> ,cl :CocCommand workspace.showOutput<CR>
+nmap ,cr :<C-u>CocRestart<CR>
 
 " Warnings List
 nnoremap <silent> ,wl  :<C-u>CocList diagnostics<cr>
@@ -424,8 +457,6 @@ nmap <silent> ,ww <Plug>(coc-diagnostic-info)
 
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> ,c  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent> ,o  :<C-u>CocList outline<cr>
 " Search workspace symbols

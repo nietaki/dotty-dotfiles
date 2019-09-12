@@ -147,3 +147,22 @@ export SDKMAN_DIR="/home/nietaki/.sdkman"
 [[ -s "/home/nietaki/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nietaki/.sdkman/bin/sdkman-init.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function backend_console_old () {
+  # first arg is the environment name, feat or live
+  local pod_name
+  pod_name=( $(kubectl get pods -n $1 -o name | egrep 'pod/backend-[0-9a-f]' | head -n 1) )
+  echo "connecting to $pod_name in $1 environment"
+
+  kubectl -n $1 exec -it $pod_name -- bash -c "_build/prod/rel/app/bin/app remote_console"
+}
+
+function backend_console () {
+  local env=( ${1:-feat} )
+  local pod_name=( $(kubectl get pods -n $env -l app=backend -o jsonpath="{.items[0].metadata.name}") )
+  local command=( ${2:-remote_console} )
+  echo "connecting to $pod_name in $env environment and running $command"
+
+  kubectl -n $env exec -it $pod_name -- bash -c "_build/prod/rel/app/bin/app $command"
+}
+

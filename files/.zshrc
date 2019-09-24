@@ -166,3 +166,6 @@ function backend_console () {
   kubectl -n $env exec -it $pod_name -- bash -c "_build/prod/rel/app/bin/app $command"
 }
 
+function gitroot () {
+  cd $(git rev-parse --show-toplevel)
+}

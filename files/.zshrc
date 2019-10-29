@@ -169,3 +169,5 @@ function backend_console () {
 function gitroot () {
   cd $(git rev-parse --show-toplevel)
 }
+
+export PATH="/home/nietaki/Android/Sdk/platform-tools:$PATH"

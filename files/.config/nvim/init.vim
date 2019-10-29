@@ -43,8 +43,10 @@ let mapleader="\<SPACE>"
 " make the leader key timeout a bit longer
 set timeoutlen=4000
 
-set foldmethod=manual
+" set foldmethod=manual
 "set foldmethod=indent
+set foldmethod=syntax
+set foldlevel=20
 
 " turn comment/text spellcheck on
 " set spell
@@ -125,6 +127,7 @@ Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'vale1410/vim-minizinc'
 
 " themes
 Plug 'joshdick/onedark.vim'
@@ -251,7 +254,7 @@ nnoremap <Leader>bh :CtrlPMRUFiles<CR>
 nnoremap <Leader>bc :Buffers<CR>
 
 "search just the contents
-" TODO another, fuzzier version without --no-sort
+" TODO search hidden files too
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--no-sort --delimiter : --nth 4..'}, <bang>0)
 command! -bang -nargs=* AgFuzzy call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 

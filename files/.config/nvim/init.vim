@@ -115,6 +115,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -290,7 +291,10 @@ nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gp :Git shove<CR>
 nmap <Leader>gb :Gblame<CR>
-nmap <Leader>gll :Gbrowse<CR>
+" nmap <Leader>gll :Gbrowse<CR>
+let g:flog_default_arguments = { 'max_count': 1000 }
+nmap <Leader>gl :Flog<CR>
+nmap <Leader>gL :Flogsplit<CR>
 " the trailing space is here for a reason!
 nmap <Leader>gg :Git 
 " search through commits

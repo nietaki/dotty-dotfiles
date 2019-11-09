@@ -130,6 +130,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'vale1410/vim-minizinc'
 
+Plug 'janko/vim-test'
+Plug 'tpope/vim-dispatch'
+
 " themes
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
@@ -195,6 +198,10 @@ nnoremap <Leader>fR :e!<CR>
 " https://vi.stackexchange.com/questions/458/how-can-i-reload-all-buffers-at-once
 nnoremap <Leader>fr :checktime<CR>
 
+" close nerdtree when you open a file
+let NERDTreeQuitOnOpen = 1
+" delete the buffer when you delete a file
+let NERDTreeAutoDeleteBuffer = 1
 map <C-\> :NERDTreeToggle<CR>
 " opens the current file in nerdtree 
 map <C-o> :NERDTreeFind<CR>
@@ -314,16 +321,16 @@ vmap <C-_> gc
 "vmap <C-c> "+y
 "nmap <C-c> b"+yw
 
-" copy the visual selection
-vmap <Leader>cc "+y
-" copy word
-nmap <Leader>cw b"+yw
-" copy Word - capitals move over interpunction
-nmap <Leader>cW B"+yW
-" paste
-nmap <Leader>cp "+p
-" paste before
-nmap <Leader>cP "+P
+" " copy the visual selection
+" vmap <Leader>cc "+y
+" " copy word
+" nmap <Leader>cw b"+yw
+" " copy Word - capitals move over interpunction
+" nmap <Leader>cW B"+yW
+" " paste
+" nmap <Leader>cp "+p
+" " paste before
+" nmap <Leader>cP "+P
 
 " relative path (src/foo.txt)
 nnoremap <leader>cf :let @+=expand("%")<CR>
@@ -475,6 +482,23 @@ nnoremap <silent> ,N  :<C-u>CocPrev<CR>
 nnoremap <silent> ,p  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> ,sl  :<C-u>CocListResume<CR>
+
+" Testing using vim test
+" let test#strategy = "neovim"
+let test#strategy = "dispatch"
+" let test#strategy = "dispatch_background"
+nnoremap ,tt :TestNearest<CR>
+nnoremap ,tl :TestLast<CR>
+nnoremap ,tf :TestFile<CR>
+nnoremap ,ts :TestSuite<CR>
+nnoremap ,ta :TestSuite<CR>
+
+" test results can be open in the quickfix window
+" nnoremap <Leader>co :copen<CR>
+nnoremap <Leader>co :copen 30<CR>
+nnoremap <Leader>cO :copen 10<CR>
+nnoremap <Leader>cc :cclose<CR>
+nnoremap <Leader>cd :cclose<CR>
 
 " it's this time again
 nmap ,cl :silent !pdflatex %<CR>

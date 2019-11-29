@@ -159,7 +159,7 @@ function backend_console_old () {
 
 function backend_console () {
   local env=( ${1:-feat} )
-  local pod_name=( $(kubectl get pods -n $env -l app=backend -o jsonpath="{.items[0].metadata.name}") )
+  local pod_name=( $(kubectl get pods -n $env -l app=backend --field-selector status.phase=Running -o jsonpath="{.items[0].metadata.name}") )
   local command=( ${2:-remote_console} )
   echo "connecting to $pod_name in $env environment and running $command"
 

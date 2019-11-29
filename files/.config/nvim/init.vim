@@ -139,6 +139,7 @@ Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
 Plug 'gcmt/taboo.vim'
 
+
 call plug#end()
 
 nnoremap <Leader>pu :PlugUpdate<CR>
@@ -185,6 +186,7 @@ nnoremap <Leader>w= <C-W>=
 " splitting
 nnoremap <Leader>w/ :vsp<CR>
 nnoremap <Leader>w- :sp <CR>
+" TODO maybe :quit would be better if :hidden is set?
 nnoremap <Leader>wd :hide<CR>
 " save all open buffers
 nnoremap <Leader>ps :wa<CR>
@@ -316,21 +318,7 @@ nmap <Leader>g/b :BCommits<CR>
 nmap <C-_> gcc
 vmap <C-_> gc
 
-" system clipboard copy in visual mode
-" thanks @lpil!
-"vmap <C-c> "+y
-"nmap <C-c> b"+yw
-
-" " copy the visual selection
-" vmap <Leader>cc "+y
-" " copy word
-" nmap <Leader>cw b"+yw
-" " copy Word - capitals move over interpunction
-" nmap <Leader>cW B"+yW
-" " paste
-" nmap <Leader>cp "+p
-" " paste before
-" nmap <Leader>cP "+P
+set clipboard=unnamedplus
 
 " relative path (src/foo.txt)
 nnoremap <leader>cf :let @+=expand("%")<CR>

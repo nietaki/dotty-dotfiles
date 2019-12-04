@@ -171,3 +171,4 @@ function gitroot () {
 }
 
 export PATH="/home/nietaki/Android/Sdk/platform-tools:$PATH"
+export ERL_AFLAGS="-kernel shell_history enabled"

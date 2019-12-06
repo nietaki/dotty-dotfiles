@@ -122,6 +122,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 
+Plug 'sbdchd/neoformat'
 Plug 'wesQ3/vim-windowswap'
 Plug 'tpope/vim-commentary'
 
@@ -138,7 +139,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
 Plug 'srcery-colors/srcery-vim'
 Plug 'gcmt/taboo.vim'
-
 
 call plug#end()
 
@@ -421,7 +421,10 @@ nmap <silent> ,er <Plug>(coc-rename)
 " Remap for do codeAction of current line
 nmap <silent> ,al  <Plug>(coc-codeaction)
 
-nmap <silent> ,ff :Format<CR>
+" nmap <silent> ,ff :Format<CR>
+" TODO configure this to run mix from a subdirectory (to inherit same .tool_versions)
+" but not compile the whole project
+nmap <silent> ,ff :Neoformat<CR>
 "command! -nargs=0 FormatBuffer :call CocAction('format')
 
 " Use `:Format` to format current buffer

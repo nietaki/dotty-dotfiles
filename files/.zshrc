@@ -108,17 +108,16 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 . $HOME/.asdf/asdf.sh
-
 . $HOME/.asdf/completions/asdf.bash
 
 export EDITOR='vim'
 export VISUAL='vim'
 
-export PATH="/home/nietaki/.pyenv/bin:$PATH"
+# export PATH="/home/nietaki/.pyenv/bin:$PATH"
 export PATH="/home/nietaki/apps:$PATH"
-export PATH="/home/nietaki/apps/exercism:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# export PATH="/home/nietaki/apps/exercism:$PATH"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 #
 #
 # export PATH=$PATH:/usr/local/sbin:/snap/bin
@@ -127,12 +126,12 @@ eval "$(direnv hook zsh)"
 
 # emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
 
-# for backend scripts and all-around convenience
-alias open=xdg-open
+# # for backend scripts and all-around convenience
+# alias open=xdg-open
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 function exhe () {
   iex -e "require IEx.Helpers; IEx.Helpers.h($argv); :erlang.halt"
@@ -140,11 +139,11 @@ function exhe () {
 
 unsetopt AUTO_CD
 
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+# export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/nietaki/.sdkman"
-[[ -s "/home/nietaki/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nietaki/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="/home/nietaki/.sdkman"
+# [[ -s "/home/nietaki/.sdkman/bin/sdkman-init.sh" ]] && source "/home/nietaki/.sdkman/bin/sdkman-init.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

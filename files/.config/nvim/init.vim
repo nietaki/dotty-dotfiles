@@ -130,6 +130,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'vale1410/vim-minizinc'
+Plug 'sudar/vim-arduino-syntax'
 
 Plug 'janko/vim-test'
 Plug 'tpope/vim-dispatch'
